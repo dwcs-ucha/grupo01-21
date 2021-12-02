@@ -7,21 +7,15 @@
 *
 */
 /** Función links Ruta **/
-/** Se encarga de imprimir en el código los links de diseño dependiendo del nivel en el que esté el archivo. **/
-/** Seleccionando el nivel 1 busca en el mismo directorio, seleccionando 2 busca en el padre y así sucesivamente **/
-function linksRuta($nivel) { 
-  $nav= "";
-  if ($nivel==1) $nav="./";
-  else if ($nivel==2) $nav="../";
-  else if ($nivel == 3) $nav="../../";
-  else if ($nivel == 4) $nav="../../../";
+function linksRuta() { 
+  $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
 ?>
 
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="cursos">
   <meta name="author" content="alumnosDaw">
- 
+  <link rel="icon" type="image/x-icon" href="<?php echo $nav; ?>content/favicon/favicon.png">
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo $nav; ?>css/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -38,14 +32,8 @@ function linksRuta($nivel) {
 } //cerramos llave de la función linksRuta()
 
 /** Función menuRuta **/
-/** Se encarga de imprimir en el código el código del menú de navegación dependiendo del nivel en el que esté el archivo. **/
-/** Seleccionando el nivel 1 busca en el mismo directorio, seleccionando 2 busca en el padre y así sucesivamente **/
-function menuRuta($nivel){
-  $nav= "";
-  if ($nivel==1) $nav="./";
-  else if ($nivel==2) $nav="../";
-  else if ($nivel == 3) $nav="../../";
-  else if ($nivel == 4) $nav="../../../";
+function menuRuta(){
+  $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
 ?>
       <!-- Nav -->
       <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -103,15 +91,25 @@ function menuRuta($nivel){
   </nav>
   <?php
 } //cerramos la función menuRuta()
+
+/** Pie de página **/
+function piePagina(){
+  ?>
+  <!-- Footer -->
+  <footer class="py-1 bg-primary">
+    <div class="container">
+      <p class="m-0 text-center ">
+        <center class="text-white">////////////////////////////////////////////////////////////////////</center>
+        <center class="text-white">Pie de pagina</center> 
+        <center class="text-white">////////////////////////////////////////////////////////////////////</center>
+      </p>
+    </div>
+  </footer>
+<?php
+} //cerramos función piePagina()
 /** Función scriptRuta **/
-/** Se encarga de imprimir en el código el código del script de bootstrap dependiendo del nivel en el que esté el archivo. **/
-/** Seleccionando el nivel 1 busca en el mismo directorio, seleccionando 2 busca en el padre y así sucesivamente **/
-function scriptRuta($nivel){
-  $nav= "";
-  if ($nivel==1) $nav="./";
-  else if ($nivel==2) $nav="../";
-  else if ($nivel == 3) $nav="../../";
-  else if ($nivel == 4) $nav="../../../";
+function scriptRuta(){
+  $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
 ?>
 <!-- Bootstrap core JavaScript -->
   <script src="<?php echo $nav; ?>js/jquery/jquery-3.5.1.slim.min.js"></script>

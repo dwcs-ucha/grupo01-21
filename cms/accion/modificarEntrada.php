@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     /*
     *
@@ -9,7 +10,7 @@
     include '../../menu.php';
     include '../clases/Entrada.class.php'; //clase Entrada
     include '../clases/DAO.class.php'; //clase DAO
-    linksRuta(3);
+    linksRuta();
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv'); //array de entradas
     $autor = 'admin'; //Recoge el valor de la variable de sesión de usuario 
     $cod = $_GET['id'];
@@ -21,8 +22,8 @@
     <script src="../ckeditor/ckeditor.js"></script>
 </head>
 <body>
-    <?php menuRuta(3); ?>
-    <form action="./modificarEntrada.php?id=<?php echo $cod; ?>" method="post">
+    <?php menuRuta(); ?>
+    <form action="./modificarEntrada.php?id=<?php echo $cod; ?>" method="post" enctype="multipart/form-data">
         <h1>Modificar entrada</h1>
         <h2>Título</h2>
         <input type="text" name="titulo" value="<?php echo $arrayCSV[$i]->titulo; ?>">
@@ -32,10 +33,8 @@
         <p><button type="submit" name="submit">Enviar</button></p>
     </form>
 <script>
-        CKEDITOR.replace('editor');
         CKEDITOR.replace('editor', {
-            height: 300,
-            filebrowserUploadUrl: "upload.php"
+            filebrowserUploadUrl: "../accion/upload.php"
         });
 </script>
 <?php 
@@ -50,7 +49,8 @@
         DAO::escribirEntradas('../csv/entradas.csv', $arrayCSV); 
         header('Location: ../vistas/blog.php');
     }
-    scriptRuta(3);
+    piePagina();
+    scriptRuta();
 ?>
 </body>
 </html>

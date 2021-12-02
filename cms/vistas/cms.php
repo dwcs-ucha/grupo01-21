@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     /*
     *
@@ -7,7 +8,6 @@
     *
     */
 ?>
-
 <html>
 <head>
     <title>Nueva entrada - UchaTech</title>
@@ -16,7 +16,7 @@
     include '../clases/Entrada.class.php';
     include '../clases/DAO.class.php';
     include '../../menu.php';
-    linksRuta(3);
+    linksRuta();
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv');
     $cod = 0;
     foreach ($arrayCSV as $entrada) {
@@ -29,8 +29,8 @@
 </head>
 <body>
     <?php
-    menuRuta(3); ?>
-    <form action="./cms.php" method="post">
+    menuRuta(); ?>
+    <form action="./cms.php" method="post" enctype="multipart/form-data">
         <h1>Nueva entrada</h1>
         <h2>Título</h2>
         <input type="text" name="titulo">
@@ -40,14 +40,12 @@
         <p><button type="submit" name="submit">Enviar</button></p>
     </form>
 <script>
-        CKEDITOR.replace('editor');
         CKEDITOR.replace('editor', {
-            height: 300,
-            filebrowserUploadUrl: "upload.php"
+            filebrowserUploadUrl: "../accion/upload.php"
         });
 </script>
-<?php 
-    scriptRuta(3);
+<?php piePagina();
+    scriptRuta();
     if(isset($_POST['titulo']) && isset($_POST['contenido']) && isset($_POST['submit'])) {
         //Guardamos la entrada en un archivo .html y en el csv que asocia la entrada a un índice
         $ruta = '../entradas/' . $cod . '.html'; //llevamos el archivo a la carpeta /entradas

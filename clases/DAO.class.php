@@ -42,8 +42,8 @@ class DAO {
 		}
 		fclose($fp);
 	}
-}
-public static function obtenerUsuarios($fichero) {
+
+	public static function obtenerUsuarios($fichero) {
         //Función que se encarga de leer el ficheiro csv y acumular sus valores en un array bidimensional
         $arrayD = array();
         global $error;
@@ -76,4 +76,5 @@ public static function obtenerUsuarios($fichero) {
         fclose($fp); //Cerramos el archivo
         return true;
     }
+}
 ?>

@@ -53,18 +53,8 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
 
   <hr>
 
-  <!-- Footer -->
-  <footer class="py-1 bg-primary">
-    <div class="container">
-      <p class="m-0 text-center ">
-        <center class="text-white">////////////////////////////////////////////////////////////////////</center>
-        <center class="text-white">Pie de pagina</center> 
-        <center class="text-white">////////////////////////////////////////////////////////////////////</center>
-      </p>
-    </div>
-  </footer>
-
-<?php scriptRuta(1) ?>
+  
+<?php piePagina(); scriptRuta(); ?>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     /*
     *
@@ -14,7 +15,7 @@
 <head>
     <title>Examen Falling Balloons</title>
     <?php
-    linksRuta(4); //añadimos los links de estilo de Bootstrap 
+    linksRuta(); //añadimos los links de estilo de Bootstrap 
     $error = array();
     $puntuacion = 0;
         if(isset($_POST['submit'])) { //si el usuario envía el formulario
@@ -68,7 +69,7 @@
     ?>
 </head>
 <body>
-    <?php menuRuta(4); ?>
+    <?php menuRuta(); ?>
     <h1>Examen del tutorial de Falling Ballons</h1>
     <form action="./formulario.php" method="post">
         <p><?php echo $preguntas[0]->cod;?>. <?php echo $preguntas[0]->enunciado;?></p>
@@ -102,7 +103,8 @@
     <?php 
         foreach ($error as $valor) echo '<p style="color:red">' . $valor . '</p>';
         isset($_POST['submit']) ? print '<p>Tu puntuación es: ' . $puntuacion .'/5</p>' : "";
-        scriptRuta(4);
+        piePagina();
+        scriptRuta();
     ?>
 </body>
 </html>

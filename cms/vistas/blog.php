@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 /*
 *
@@ -13,13 +14,13 @@
     include '../../menu.php';
     include '../clases/Entrada.class.php';
     include '../clases/DAO.class.php';
-    linksRuta(3); //Incluimos links de header para el estilo
+    linksRuta(); //Incluimos links de header para el estilo
     ?>
     <title>Blog - UchaTech</title>
 </header>
 <body>
     <?php    
-    menuRuta(3); //Incluimos el menú en php
+    menuRuta(); //Incluimos el menú en php
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv'); //obtenemos el array de entradas
     echo '<h1>Blog UchaTech</h1>';
     echo '<div class="container">';
@@ -31,7 +32,8 @@
         //añadimos la función de modificar y borrar en el caso de que el usuario sea admin.
     }
     echo '</div>';
-    scriptRuta(3);
+    piePagina();
+    scriptRuta();
 ?>
 
 </body>

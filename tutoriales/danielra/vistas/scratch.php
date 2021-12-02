@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     /*
     *
@@ -11,10 +12,10 @@
 <html>
 <head>
     <title>Tutorial Falling Balloons</title>
-    <?php linksRuta(4); ?>
+    <?php linksRuta(); ?>
 </head>
 <body>
-    <?php menuRuta(4); ?>
+    <?php menuRuta(); ?>
     <h1>Tutorial de Scratch: Falling Balloons</h1>
     <h2>Descripción</h2>
     <p>
@@ -79,6 +80,6 @@
     </p>
     <iframe src="https://scratch.mit.edu/projects/605887755/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
     <br><a href="./formulario.php"><button>Ir al examen</button></a>
-    <?php scriptRuta(4); ?>
+    <?php piePagina(); scriptRuta(); ?>
 </body>
 </html>
