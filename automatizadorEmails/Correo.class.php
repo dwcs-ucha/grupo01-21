@@ -1,16 +1,15 @@
 <?php
     Class Correo{
-        private $cabecera="From: contacto@uchatech.es";
+        private static $cabecera="From: contacto@uchatech.es\r\n";
         
-        public function enviarCorreo($destinatario, $asunto, $mensaje) {
+        public static function enviarCorreo($destinatario, $asunto, $mensaje) {
             ini_set( 'display_errors', 1 );
             error_reporting( E_ALL );
-            //$from = "Enviado por contacto@uchatech.es";
-            //$asunto = "Correo de prueba";
-            //$mensaje = "Hola buenas tardes.\n\nEste es un correo de prueba.\n\nMuchas gracias,\nÓscar.";
-            $mensaje=str_replace("<br/>","\n",$mensaje);
-            //$cabecera = $from;
-            mail($destinatario,$asunto,$mensaje, $this->cabecera);
+            if(is_array($destinatario)) //Comprobamos si el destinatario es un array
+                $destinatario=implode(",", $destinatario); //De serlo, lo convertimos en un array que divimos por comas
+            $mensaje=str_replace("<br/>","\n",$mensaje); //En el mensaje sustituímos los <br/> por \n para que se produzcan saltos de línea
+            self::$cabecera.="Bcc: $destinatario\r\n";
+            mail($destinatario,$asunto,$mensaje, self::$cabecera); //Llamamos a la función mail para enviar el correo
             echo "El email se ha enviado correctamente";
         }
     }
