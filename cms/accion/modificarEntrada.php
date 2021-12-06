@@ -9,11 +9,14 @@
     */
     include '../../menu.php';
     include '../clases/Entrada.class.php'; //clase Entrada
-    include '../clases/DAO.class.php'; //clase DAO
+    include '../../clases/DAO.class.php'; //clase DAO
     linksRuta();
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv'); //array de entradas
     $autor = 'admin'; //Recoge el valor de la variable de sesión de usuario 
     $cod = $_GET['id'];
+    if(isset($_POST['titulo']) && isset($_POST['contenido']) && isset($_POST['submit'])) {
+        header('Location: ../vistas/blog.php');
+    }
     
     for ($i=0; $i<=count($arrayCSV); $i++) {
         if ($arrayCSV[$i]->codigo == $_GET['id']) break; //si coincide con el codigo, rompemos el bucle y nos quedamos con esa posición de $arrayCSV[$i]
@@ -47,7 +50,7 @@
         $entrada = new Entrada($cod, $ruta, $_POST['titulo'], $autor, $fecha); //creamos objeto de entrada
         $arrayCSV[$i] = $entrada;  //guardamos en el array de entradas en la posición del código
         DAO::escribirEntradas('../csv/entradas.csv', $arrayCSV); 
-        header('Location: ../vistas/blog.php');
+        
     }
     piePagina();
     scriptRuta();

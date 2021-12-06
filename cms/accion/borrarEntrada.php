@@ -8,7 +8,7 @@
     */
 
     include '../clases/Entrada.class.php'; //clase Entrada
-    include '../clases/DAO.class.php'; //clase DAO
+    include '../../clases/DAO.class.php'; //clase DAO
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv'); //array de entradas
     for ($i=0; $i<=count($arrayCSV); $i++) {
         if ($arrayCSV[$i]->codigo == $_GET['id']) unset($arrayCSV[$i]);

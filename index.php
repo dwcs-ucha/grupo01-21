@@ -12,7 +12,7 @@
 <head>
 <title>Cursos - UchaTech</title>
 <?php  
-include './tutoriales/clases/DAO.class.php';
+include './clases/DAO.class.php';
 include './tutoriales/clases/Tutorial.class.php';
 include './menu.php'; 
 linksRuta(1); //imprimimos en el header los links de estilo de Bootstrap
@@ -35,17 +35,19 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
     <div class="row m-4">
       <?php 
       foreach ($arrayTutoriales as $tutorial) {
-        echo '<a style="color: white; text-align:center" href="./tutoriales/' . $tutorial->ruta . '">
-              <div class="col-lg-3 mb-3">
-                <div class="card bg-primary" id="card">
-                  <div class="card-body">
-                    <img src="./tutoriales/img/' . $tutorial->img . '" width="100%"></img>
-                    <h3>' . $tutorial->titulo . '</h3>
-                    <p style="font-size:0.8em">Autor: ' . $tutorial->autor .'</p>  
+        echo
+              '<div class="col-lg-3 mb-3">
+                  <div class="card bg-primary" id="card">
+                  <a style="color: white; text-align:center" href="./tutoriales/' . $tutorial->ruta . '">
+                    <div class="card-body">
+                      <img src="./tutoriales/img/' . $tutorial->img . '" width="100%"></img>
+                      <h3>' . $tutorial->titulo . '</h3>
+                      <p style="font-size:0.8em">Autor: ' . $tutorial->autor .'</p>  
+                    </div>
+                    </a>
                   </div>
-                </div>
-              </div>
-              </a>';
+                </div>';
+           
       }
       ?>
     </div>

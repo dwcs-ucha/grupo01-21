@@ -14,7 +14,7 @@
     <script src="../ckeditor/ckeditor.js"></script>
     <?php
     include '../clases/Entrada.class.php';
-    include '../clases/DAO.class.php';
+    include '../../clases/DAO.class.php';
     include '../../menu.php';
     linksRuta();
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv');
@@ -44,8 +44,7 @@
             filebrowserUploadUrl: "../accion/upload.php"
         });
 </script>
-<?php piePagina();
-    scriptRuta();
+<?php 
     if(isset($_POST['titulo']) && isset($_POST['contenido']) && isset($_POST['submit'])) {
         //Guardamos la entrada en un archivo .html y en el csv que asocia la entrada a un índice
         $ruta = '../entradas/' . $cod . '.html'; //llevamos el archivo a la carpeta /entradas
@@ -57,6 +56,8 @@
         DAO::escribirEntradas('../csv/entradas.csv', $arrayCSV);  //escribimos de nuevo el archivo
         header('Location: ../vistas/blog.php'); //redirigimos a blog.php
     }
+    piePagina();
+    scriptRuta();
 ?>
 </body>
 </html>

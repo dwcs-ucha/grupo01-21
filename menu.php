@@ -7,8 +7,12 @@
 *
 */
 /** Función links Ruta **/
+
+$nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
+include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/multiidioma/clases/Idioma.class.php';
+
 function linksRuta() { 
-  $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
+  global $nav;
 ?>
 
 <meta charset="utf-8">
@@ -33,7 +37,19 @@ function linksRuta() {
 
 /** Función menuRuta **/
 function menuRuta(){
-  $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
+  $valoresMenu = array (
+    'nuevaEntrada' => 'Nueva entrada',
+    'blog' => 'Blog',
+    'usuarios' => 'Usuarios',
+    'recursos' => 'Recursos',
+    'idioma' => 'Idioma',
+    'iniciarSesion' => 'Iniciar sesión',
+    'registro' => 'Registro'
+  );
+
+  $valoresMenu = Idioma::cambiarIdioma($valoresMenu);
+  
+  global $nav;
 ?>
       <!-- Nav -->
       <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -50,32 +66,32 @@ function menuRuta(){
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item me-4">
-            <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/blog.php">Blog</a>
+            <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/blog.php"><?php echo $valoresMenu['blog']; ?></a>
           </li>
           <li class="nav-item me-4">
-            <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/cms.php">Nueva entrada</a>
+            <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/cms.php"><?php echo $valoresMenu['nuevaEntrada']; ?></a>
           </li>
           <li class="nav-item me-4">
-            <a class="nav-link text-white" href="#">Usuarios</a>
+            <a class="nav-link text-white" href="#"><?php echo $valoresMenu['usuarios']; ?></a>
           </li>
 
           <li class="nav-item me-4">
-            <a class="nav-link text-white" href="#">Recursos</a>
+            <a class="nav-link text-white" href="#"><?php echo $valoresMenu['recursos']; ?></a>
           </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              Equipo
+              <?php echo $valoresMenu['idioma']; ?>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item text-primary" href="#">Frontend</a></li>
+              <li><a class="dropdown-item text-primary" href="?idioma=es">ES</a></li>
               <hr class="dropdown-divider">
-              <li><a class="dropdown-item text-primary" href="#">Contido</a></li>
+              <li><a class="dropdown-item text-primary" href="?idioma=gl">GL</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item text-primary" href="#">Backend</a></li>
+              <li><a class="dropdown-item text-primary" href="?idioma=en">EN</a></li>
             </ul>
           </li>
 
@@ -83,8 +99,8 @@ function menuRuta(){
 
         <!-- Formulario -->
         <form class="d-flex">
-          <button class="btn btn-outline-light me-4" type="submit">Iniciar sesión</button>
-          <button class="btn btn-outline-light me-4" type="submit">Registro</button>
+          <button class="btn btn-outline-light me-4" type="submit"><?php echo $valoresMenu['iniciarSesion']; ?></button>
+          <button class="btn btn-outline-light me-4" type="submit"><?php echo $valoresMenu['registro']; ?></button>
         </form>
       </div>
     </div>
@@ -109,7 +125,7 @@ function piePagina(){
 } //cerramos función piePagina()
 /** Función scriptRuta **/
 function scriptRuta(){
-  $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
+  global $nav;
 ?>
 <!-- Bootstrap core JavaScript -->
   <script src="<?php echo $nav; ?>js/jquery/jquery-3.5.1.slim.min.js"></script>

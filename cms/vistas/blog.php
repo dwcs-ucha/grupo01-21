@@ -9,15 +9,15 @@
 */
 ?>
 <html>
-<header>
+<head>
     <?php 
     include '../../menu.php';
     include '../clases/Entrada.class.php';
-    include '../clases/DAO.class.php';
+    include '../../clases/DAO.class.php';
     linksRuta(); //Incluimos links de header para el estilo
     ?>
     <title>Blog - UchaTech</title>
-</header>
+</head>
 <body>
     <?php    
     menuRuta(); //Incluimos el menú en php
