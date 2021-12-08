@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("./menu.php");
+    include("../menu.php");
     if(isset($_POST['nombreUsuario'])){
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
 <?php
     }
     else{
-        header("Location: login.php");
+        header("Location: ./login.php");
 
     }
 ?>

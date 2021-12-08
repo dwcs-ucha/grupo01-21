@@ -10,10 +10,10 @@ session_start();
     </head>
     <body>
         <?php
-        include("./clases/Usuario.class.php");
-        include("./clases/DAO.class.php");
-        include("./menu.php");
-        $archivo=("./CSV/usuarios.csv");
+        include("../clases/Usuario.class.php");
+        include("../clases/DAO.class.php");
+        include("../menu.php");
+        $archivo=("../CSV/usuarios.csv");
         $error="";
         $i=0;
         $encontrado=false;
