@@ -72,6 +72,22 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
     return $coinciden;
  }
 
+ public static function comparaUsuarios($usuario, $arrayCSV) { //Función que se encarga de comparar o usuario ingresado cos que xa están rexistrados
+    global $erro;
+    $repetido = false;
+    $i = 0;
+    while(!$repetido && $i<count($arrayCSV)) { //mentres que non estea repetido e o contador sexa menor á lonxitude do array
+        if ($arrayCSV[$i]->getNombreUsuario() == $usuario) { //se coinciden
+            $repetido = true; //repetido é true
+            $error[]="El usuario ya está registrado"; 
+        }
+        $i++; //sumamos contador
+    }
+    return $repetido; //devolvemos true no caso de que o usuario exista no ficheiro
+}
+
+ 
+
 
 public static function validaNombre($nombre) {
     global $error; 

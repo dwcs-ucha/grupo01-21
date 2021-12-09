@@ -15,7 +15,7 @@
          include("../clases/DAO.class.php");
          include("../clases/Validaciones.class.php");
          include("../menu.php");
-        $archivo=("../CSV/usuarios.csv");
+        $archivo=("./csv/usuarios.csv");
         $error = array();
         linksRuta();
         

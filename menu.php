@@ -36,6 +36,9 @@ function linksRuta() {
   <link rel="stylesheet" href="<?php echo $nav; ?>css/custom/all/styles.css">
   <link rel="stylesheet" href="<?php echo $nav; ?>css/custom/1.css">
   <style>
+    body {
+      margin-top: 55px;
+    }
     .footer {
       bottom: 0;
       width: 100%;
@@ -98,7 +101,7 @@ function menuRuta(){
               <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/cms.php"><?php echo $valoresMenu['nuevaEntrada']; ?></a>
             </li>
             <li class="nav-item me-4">
-              <a class="nav-link text-white" href="#"><?php echo $valoresMenu['usuarios']; ?></a>
+              <a class="nav-link text-white" href="<?php echo $nav; ?>login-registro/gestionUsuarios.php"><?php echo $valoresMenu['usuarios']; ?></a>
             </li>
           <?php 
           } ?>
