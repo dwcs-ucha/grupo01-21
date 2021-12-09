@@ -7,6 +7,7 @@
     *@version: 1.00.00
     *
     */
+    include '../../clases/Tutorial.class.php';
     include '.././clases/Pregunta.class.php'; //añadimos la clase Pregunta
     include '../../../clases/DAO.class.php'; //añadimos la clase DAO
     include '../../../menu.php'; //añadimos el menú
@@ -65,6 +66,7 @@
                         in_array($preguntas[4]->respuesta[1], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: Tratar de que nuestros electrodomésticos cuenten con la etiqueta de eficiencia energética más elevada (A++ o A+)";
                     }
                 }
+                Tutorial::añadirPuntuacion(1,$puntuacion);
         }
     ?>
 </head>

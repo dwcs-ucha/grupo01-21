@@ -1,8 +1,8 @@
 <?php 
 /*
 *
-*Index
-*@autor: Luis
+*Menú
+*@autor: Daniel Rivas Arévalo
 *@version: 1.00.00
 *
 */
@@ -10,6 +10,9 @@
 
 $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
 include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/multiidioma/clases/Idioma.class.php';
+include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/clases/Usuario.class.php';
+session_start();
+isset($_SESSION['usuario']) ? $usuario=$_SESSION['usuario'] : "" ;
 
 function linksRuta() { 
   global $nav;
@@ -32,14 +35,32 @@ function linksRuta() {
   <!-- CSS custom -->
   <link rel="stylesheet" href="<?php echo $nav; ?>css/custom/all/styles.css">
   <link rel="stylesheet" href="<?php echo $nav; ?>css/custom/1.css">
+  <style>
+    .footer {
+      bottom: 0;
+      width: 100%;
+    }
+
+    .navbar {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      box-shadow: -3px 5px 23px rgba(87, 87, 87, 0.2)  ; 
+      -webkit-box-shadow: -3px 5px 23px rgba(87, 87, 87, 0.2)  ; 
+      -moz-box-shadow: -3px 5px 23px rgba(87, 87, 87, 0.2)  ;  
+    }
+  </style>
 <?php
 } //cerramos llave de la función linksRuta()
 
 /** Función menuRuta **/
 function menuRuta(){
+  global $usuario;
   $valoresMenu = array (
     'nuevaEntrada' => 'Nueva entrada',
     'blog' => 'Blog',
+    'tutoriales' => 'Tutoriales',
     'usuarios' => 'Usuarios',
     'recursos' => 'Recursos',
     'idioma' => 'Idioma',
@@ -66,14 +87,21 @@ function menuRuta(){
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item me-4">
+            <a class="nav-link text-white" href="<?php echo $nav; ?>index.php#tutoriales"><?php echo $valoresMenu['tutoriales']; ?></a>
+          </li>
+          <li class="nav-item me-4">
             <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/blog.php"><?php echo $valoresMenu['blog']; ?></a>
           </li>
-          <li class="nav-item me-4">
-            <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/cms.php"><?php echo $valoresMenu['nuevaEntrada']; ?></a>
-          </li>
-          <li class="nav-item me-4">
-            <a class="nav-link text-white" href="#"><?php echo $valoresMenu['usuarios']; ?></a>
-          </li>
+          <?php 
+          if(isset($_SESSION['usuario']) && $usuario->getRol() == "administrador") { ?>
+            <li class="nav-item me-4">
+              <a class="nav-link text-white" href="<?php echo $nav; ?>cms/vistas/cms.php"><?php echo $valoresMenu['nuevaEntrada']; ?></a>
+            </li>
+            <li class="nav-item me-4">
+              <a class="nav-link text-white" href="#"><?php echo $valoresMenu['usuarios']; ?></a>
+            </li>
+          <?php 
+          } ?>
 
           <li class="nav-item me-4">
             <a class="nav-link text-white" href="#"><?php echo $valoresMenu['recursos']; ?></a>
@@ -96,12 +124,28 @@ function menuRuta(){
           </li>
 
         </ul>
-
-        <!-- Formulario -->
-        <form class="d-flex">
-          <button class="btn btn-outline-light me-4" type="submit"><?php echo $valoresMenu['iniciarSesion']; ?></button>
-          <button class="btn btn-outline-light me-4" type="submit"><?php echo $valoresMenu['registro']; ?></button>
-        </form>
+          <?php if(!isset($_SESSION['usuario'])) { ?>
+            <!-- Login / Rexistro -->
+            <a href="<?php echo $nav; ?>login-registro/login.php"><button class="btn btn-outline-light me-4"><?php echo $valoresMenu['iniciarSesion']; ?></button></a>
+            <a href="<?php echo $nav; ?>login-registro/registro.php"><button class="btn btn-outline-light me-4"><?php echo $valoresMenu['registro']; ?></button></a>
+          <?php 
+          } else { ?>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <?php echo $usuario->getNombreUsuario(); ?>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item text-primary" href="<?php echo $nav; ?>perfil.php">Perfil</a></li>
+                <hr class="dropdown-divider">
+                <li><a class="dropdown-item text-primary" href="<?php echo $nav; ?>login-registro/logoff.php">Salir</a></li>
+              </ul>
+            </li>
+          </ul>
+         <?php
+            }
+          ?>
       </div>
     </div>
   </nav>
@@ -112,7 +156,7 @@ function menuRuta(){
 function piePagina(){
   ?>
   <!-- Footer -->
-  <footer class="py-1 bg-primary">
+  <footer class="footer py-1 bg-primary">
     <div class="container">
       <p class="m-0 text-center ">
         <center class="text-white">////////////////////////////////////////////////////////////////////</center>

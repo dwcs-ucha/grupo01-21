@@ -15,13 +15,13 @@
 include './clases/DAO.class.php';
 include './tutoriales/clases/Tutorial.class.php';
 include './menu.php'; 
-linksRuta(1); //imprimimos en el header los links de estilo de Bootstrap
+linksRuta(); //imprimimos en el header los links de estilo de Bootstrap
 $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
 ?>
 </head>
 
 <body>
-  <?php menuRuta(1);//Incluimos el menú en php?> 
+  <?php menuRuta();//Incluimos el menú en php?> 
 
   <!-- Header -->
   <header>
@@ -31,7 +31,7 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
   <hr>
 
   <!--  Content -->
-  <div class="container">
+  <div class="container" id="tutoriales">
     <div class="row m-4">
       <?php 
       foreach ($arrayTutoriales as $tutorial) {

@@ -28,8 +28,10 @@
         echo '<div><h2>' . $arrayCSV[$i]->titulo . '</h2>'; //imprimir el título
         echo '<span class="datos">Escrito por ' . $arrayCSV[$i]->autor . ' el ' . $arrayCSV[$i]->fecha . '</span>'; //añadir autor y fecha
         echo '<span class="contenido">' . file_get_contents($arrayCSV[$i]->ruta) . '</span>'; //imprimir en pantalla el contenido
-        echo '<span><a href="../accion/modificarEntrada.php?id=' . $arrayCSV[$i]->codigo . '">Modificar</a><a href="../accion/borrarEntrada.php?id=' . $arrayCSV[$i]->codigo . '">Borrar</a></div>';
-        //añadimos la función de modificar y borrar en el caso de que el usuario sea admin.
+        if(isset($_SESSION['usuario']) && $usuario->getRol() == "administrador") {
+            echo '<a href="../accion/modificarEntrada.php?id=' . $arrayCSV[$i]->codigo . '"><button class="btn btn-primary me-4">Modificar</button></a>
+            <a href="../accion/borrarEntrada.php?id=' . $arrayCSV[$i]->codigo . '"><button class="btn btn-danger me-4">Borrar</button></a></div>';
+        } //añadimos la función de modificar y borrar en el caso de que el usuario sea admin.
     }
     echo '</div>';
     piePagina();
@@ -37,3 +39,4 @@
 ?>
 
 </body>
+</html>

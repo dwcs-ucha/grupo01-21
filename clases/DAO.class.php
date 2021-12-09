@@ -49,8 +49,8 @@ class DAO {
         global $error;
         if ($fp = fopen($fichero, 'r')) {
             while ($fila=fgetcsv($fp,1000, ',')) { //Mientras existan valores que leer
-                $usuario= new Usuario($fila[0],$fila[1],$fila[2],$fila[3], $fila[4]); //creamos el objeto usuario con los valores del csv como valores de los atributos
-                $arrayD[] = $usuario; //añadimos al array de datos el objeto usuario
+                $usuarioDato= new Usuario($fila[0],$fila[1],$fila[2],$fila[3], $fila[4], $fila[5]); //creamos el objeto usuario con los valores del csv como valores de los atributos
+                $arrayD[] = $usuarioDato; //añadimos al array de datos el objeto usuario
             }
         } else {
             $error[] = 'El fichero no pudo ser abierto';
@@ -64,9 +64,9 @@ class DAO {
 
     public static function escribirUsuarios($fichero, $arrayDatos) {
         global $error;
-        if (empty($error) &&  $fp = fopen($ficheiro, 'w')) { //En el caso de que no haya errores y deje entrar al archivo
-            foreach ($arrayDatos as $usuario) {
-                $filaDatos = array($usuario->nombreUsuario, $usuario->contraseña, $usuario->rol, $usuario->email, $usuario->activado);
+        if ($fp = fopen($fichero, 'w')) { //En el caso de que no haya errores y deje entrar al archivo
+            foreach ($arrayDatos as $usuarioDato) {
+                $filaDatos = array($usuarioDato->getNombreUsuario(), $usuarioDato->getContraseña(), $usuarioDato->getRol(), $usuarioDato->getEmail(), $usuarioDato->getActivado(), $usuarioDato->getPuntuacionString());
                 fputcsv($fp, $filaDatos); //Ponemos cada fila del csv
             }
         } else {
