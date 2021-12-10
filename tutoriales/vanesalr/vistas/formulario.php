@@ -67,7 +67,7 @@
                         in_array($preguntas[4]->respuesta[1], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: La energía eólica";
                     }
                 }
-                isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(1,$puntuacion) : "";
+                isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(3,$puntuacion) : "";
         }
         !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : "";
     ?>
@@ -120,6 +120,7 @@
     <?php 
         foreach ($error as $valor) echo '<p style="color:red">' . $valor . '</p>';
         isset($_POST['submit']) ? print '<p>Tu puntuación es: ' . $puntuacion .'/5</p>' : "";
+        echo $mensaxe;
         piePagina();
         scriptRuta();
     ?>

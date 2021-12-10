@@ -5,8 +5,9 @@
     *@version: 1.00.00
     *fecha ultima modificacion: 04/12/2021
     */
+    include '../../clases/Tutorial.class.php';
     include '.././clases/Pregunta.class.php'; //añadimos la clase Pregunta
-    include '.././clases/DAO.class.php'; //añadimos la clase DAO
+    include '../../../clases/DAO.class.php'; //añadimos la clase DAO
     include '../../../menu.php'; //añadimos el menú
     $preguntas = DAO::obterPreguntas('.././csv/preguntas.csv');
 ?>
@@ -64,7 +65,10 @@
                         in_array($preguntas[4]->respuesta[1], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: Instalar termostatos en las habitaciones";
                     }
                 }
+                isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(4,$puntuacion) : "";
         }
+        !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
+        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../../perfil.php">perfil</a></p>';
     ?>
 </head>
 <body>
@@ -112,6 +116,7 @@
     <?php 
         foreach ($error as $valor) echo '<p class="text-center" style="color:red">' . $valor . '</p>';
         isset($_POST['submit']) ? print '<p class="text-center">Tu puntuación es: ' . $puntuacion .'/5</p>' : "";
+        echo $mensaxe;
         piePagina(); scriptRuta();
     ?>
 </body>

@@ -91,7 +91,8 @@ function menuRuta(){
     'recursos' => 'Recursos',
     'idioma' => 'Idioma',
     'iniciarSesion' => 'Iniciar sesión',
-    'registro' => 'Registro'
+    'registro' => 'Registro',
+    'visitas' => 'Visitas'
   );
 
   $valoresMenu = Idioma::cambiarIdioma($valoresMenu);
@@ -126,6 +127,9 @@ function menuRuta(){
             <li class="nav-item me-4">
               <a class="nav-link text-white" href="<?php echo $nav; ?>login-registro/gestionUsuarios.php"><?php echo $valoresMenu['usuarios']; ?></a>
             </li>
+            <li class="nav-item me-4">
+            <a class="nav-link text-white" href="<?php echo $nav; ?>visitas/visitas.php"><?php echo $valoresMenu['visitas']; ?></a>
+          </li>
           <?php 
           } ?>
           <li class="nav-item dropdown">

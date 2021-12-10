@@ -7,6 +7,7 @@
     *
     */
     include '../../../menu.php';
+	include '../../../clases/DAO.class.php'
 ?>
 
 <!DOCTYPE html>

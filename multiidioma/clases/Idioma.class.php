@@ -13,6 +13,7 @@ class Idioma {
         if (isset($_GET['idioma']) || isset($_COOKIE['idioma'])) {
             $idioma = "";
             if (isset($_GET['idioma']) && $_COOKIE['idioma']!=$_GET['idioma']){
+                unset($_COOKIE['idioma']);
                 setCookie('idioma', $_GET['idioma']);
                 $idioma=$_GET['idioma'];
             } else {
