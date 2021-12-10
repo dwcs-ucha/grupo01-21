@@ -96,7 +96,7 @@
                 echo ' <div class="container p-4">
                 <div class="row">
                         <div class="col-md-12">
-                            <h1 class="my-4 text-center text-white">Tábla de usuarios</h1>
+                            <h1 class="my-4 text-center text-white">Tabla de usuarios</h1>
                         </div>
                     </div>
                 </div>';
