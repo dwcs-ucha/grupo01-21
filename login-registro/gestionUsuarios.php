@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Login - UchaTech</title>
+        <title>Usuarios - UchaTech</title>
         <?php
          include("../clases/DAO.class.php");
          include("../clases/Validaciones.class.php");
@@ -30,11 +30,18 @@
     else {
         ?>
     </head>
-    <body>
+    <body class="bg-primary bg-opacity-50">
         <?php menuRuta(); ?>
-        <h1>Ingreso de usuarios</h1>
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="my-4 text-center text-white">Ingreso de usuarios</h1>
+                </div>
+            </div>
+        </div>
         <form action="./gestionUsuarios.php" method="post">
-        <div class="campos">
+        <div class="row m-4 border rounded border-primary shadow-lg p-4 bg-light">
+        <div class="col-lg-12 text-center">
             <p>Rol</p>
             <select name="rol">
             <option disabled <?php !isset($_POST['rol']) ? print 'selected="true"' : "";?>>Seleccione rol</option>
@@ -60,14 +67,18 @@
             <p>Correo electrónico</p>
             <input type="email" name="email" value="<?php isset($_POST['email']) ? print $correo=Validaciones::validaEmail($_POST['email']) : ""; ?>"> <br>
         </div>
-            <button type="submit" name="submit">Enviar</button>
+            <button class="btn btn-primary m-4 col-lg-1 mx-auto" type="submit" name="submit">Enviar</button>
         </form>
+            </div>
+            </div>
 
 
         <?php 
+            $puntuacion="0-0-0-0-0-0-0-0-0";
+            $activado=false;
             foreach ($error as $valor) echo '<p class=error>' . $valor . '</p>';
             if (empty($error) && isset($_POST['submit'])) {
-                $usuarioNuevo = new Usuario($usuarioValidado, $contraseña, $rol, $correo, false, 0-0-0-0-0-0-0-0-0);
+                $usuarioNuevo = new Usuario($usuarioValidado, $contraseña, $rol, $correo, $activado, $puntuacion);
                 $arrayCSV[] = $usuarioNuevo;
                 DAO::escribirUsuarios('./csv/usuarios.csv', $arrayCSV);
             }
@@ -82,8 +93,16 @@
                     'Rol',
                     'Correo electrónico',
                 ); //cabeceira da táboa
-                echo "<h1>Tabla de usuarios</h1>";
-                echo '<table><tr>';
+                echo ' <div class="container p-4">
+                <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="my-4 text-center text-white">Tábla de usuarios</h1>
+                        </div>
+                    </div>
+                </div>';
+                echo '<div class="row m-4 border rounded border-primary shadow-lg p-4 bg-light">';
+                echo '<div class="col-lg-12 text-center mx-auto">';
+                echo '<table class="table"><tr>';
                 foreach ($cabecera as $datoCabecera) { //Imprimimos os datos da cabeceira
                     echo '<td class="cabecera">' . $datoCabecera . '</td>';
                 }
@@ -94,10 +113,10 @@
                         echo '<td>' . $usuarioDato->getContraseña() . '</td>';
                         echo '<td>' . $usuarioDato->getRol() . '</td>';
                         echo '<td>' . $usuarioDato->getEmail() . '</td>';
-                    echo '<td><a href="borrarUsuario.php?id=' . array_search($usuarioDato,$arrayCSV) . '">Borrar</a></td>';
+                    echo '<td><a href="borrarUsuario.php?id=' . array_search($usuarioDato,$arrayCSV) . '"><button class="btn btn-danger me-3">Borrar</button></a></td>';
                     echo '</tr>'; //pechamos fila
                 }
-                echo '</table>';  
+                echo '</table></div></div>';  
     }   
                 piePagina(); scriptRuta(); 
     ?>

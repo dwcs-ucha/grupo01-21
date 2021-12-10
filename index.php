@@ -20,16 +20,13 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
 ?>
 </head>
 
-<body>
+ <body class="d-flex flex-column min-vh-100">
   <?php menuRuta();//Incluimos el menú en php?> 
 
   <!-- Header -->
-  <header>
-    <img src="content/index/header/Img_header.png" class="img-fluid" alt="header">
+  <header class="col-lg-12" style="background-color:#4285F4;padding:50px;text-align:center;">
+    <img src="content/index/header/scratch_header.png" class="img-fluid text-center" alt="header" width=50%>
   </header> 
-
-  <hr>
-
   <!--  Content -->
   <div class="container" id="tutoriales">
     <div class="row m-4">
@@ -39,8 +36,8 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
               '<div class="col-lg-3 mb-3">
                   <div class="card bg-primary" id="card">
                   <a style="color: white; text-align:center" href="./tutoriales/' . $tutorial->ruta . '">
-                    <div class="card-body">
-                      <img src="./tutoriales/img/' . $tutorial->img . '" width="100%"></img>
+                    <div class="card-body" style="height: 300px">
+                      <img src="./tutoriales/img/' . $tutorial->img . '" width="90%"></img>
                       <h3>' . $tutorial->titulo . '</h3>
                       <p style="font-size:0.8em">Autor: ' . $tutorial->autor .'</p>  
                     </div>
@@ -52,10 +49,6 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
       ?>
     </div>
   </div>
-
-  <hr>
-
-  
 <?php piePagina(); scriptRuta(); ?>
 </body>
 

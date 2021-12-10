@@ -34,38 +34,41 @@
             $usuario = Validaciones::validaUsuario($_POST['nombreUsuario']);
             $contraseña = Validaciones::validaContraseña($_POST['contraseña']);
             $arrayUsuarios=DAO::obtenerUsuarios($archivo);
-            $captcha = $_POST['g-recaptcha-response'];
-            $secret = '6LctxY0dAAAAAI-JjPSJMPUFRvfncxAGNsWq4YZ6';
-            !$captcha ? $error[] = 'Tienes que verificar el captcha' : "";
-            $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
-            $arr = json_decode($response, TRUE);
-            var_dump($response);
-            if($arr['success'] && empty($error)) {
+            if(empty($error)) {
                 Validaciones::validaLogin($usuario, $contraseña, $arrayUsuarios);
             }
         }              
             
     ?>  
-        <body>
+       <body class="bg-primary bg-opacity-50">
         <?php menuRuta();//Incluimos el menú en php?>
           <form class="form" id="formulario" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post"
             enctype="multipart/form-data" text-align="center">
             <fieldset>
-                <legend>Login</legend>
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="my-4 text-center text-white">Login</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
+                <div class="col-lg-12">
                 Nombre usuario:</br>
                 <input type="text" name="nombreUsuario" placeholder="Nombre Usuario"/></br></br>
                 Contraseña:</br>
                 <input type="password" name="contraseña" placeholder="Contraseña"/></br></br>
-                <div class="g-recaptcha" data-sitekey="6LctxY0dAAAAAJAIY-2GH4FsvDE5dfOglqk_EjMX"></div>
-                <input type="submit" name="submit" value="Enviar"/></br></br>
+                <input class="btn btn-primary" type="submit" name="submit" value="Enviar"/></br></br>
+                </div>
+                </div>
                 <?php
-                 foreach ($error as $valor) echo '<p>' . $valor . '</p>';
+                 foreach ($error as $valor) echo '<p class="text-center">' . $valor . '</p>';
                 ?>
             </fieldset>
         </form>
-        <p>Si no estás registrado: <a href="./registro.php">Pincha aquí</a></p>
+        <p class="text-center">Si no estás registrado: <a href="./registro.php">Pincha aquí</a></p>
         
         <?php piePagina(); scriptRuta(); ?>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+        
     </body>
 </html>

@@ -19,7 +19,7 @@ else if($usuario->getRol()!='administrador') {
 else {
     linksRuta();
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv'); //array de entradas
-    $autor = 'admin'; //Recoge el valor de la variable de sesión de usuario 
+    $autor = $usuario->getNombreUsuario(); //Recoge el valor de la variable de sesión de usuario 
     $cod = $_GET['id'];
     if(isset($_POST['titulo']) && isset($_POST['contenido']) && isset($_POST['submit'])) {
         header('Location: ../vistas/blog.php');

@@ -24,21 +24,29 @@
         $puntuacion = $usuario->getPuntuacion();
     ?>
     </head>
-    <body>
+    <body class="bg-primary bg-opacity-50">
         <?php menuRuta(); ?>
-        <h1><?php echo $usuario->getNombreUsuario(); ?></h1>
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="my-4 text-center text-white"><?php echo 'Perfil: ' . $usuario->getNombreUsuario(); ?></h1>
+                </div>
+            </div>
+        </div>
         <?php 
         $puntuacionTotal = 0;
-        echo '<h2>Puntuaciones</h2>';
+        echo '<div class="row m-4 border border-primary shadow-lg p-4 bg-light"><h2 class="text-primary text-center">Puntuaciones</h2>';
+        echo '<hr class="color-primary">';
+        echo '<div class="col-lg-12 text-center">';
         foreach ($tutoriales as $tutorial) {
             for ($i=1; $i<=count($puntuacion); $i++) {
                 if($i == $tutorial->cod) {
-                    echo '<p>' . $tutorial->titulo . ': ' . $puntuacion[$i] . ' puntos</p>';
+                    echo '<p><a href="./tutoriales/' . $tutorial->ruta . '">' . $tutorial->titulo . '</a>: ' . $puntuacion[$i] . ' puntos</p>';
                     $puntuacionTotal+=$puntuacion[$i];
                 }
             }
         }
-        echo '<p>Tu puntuación total es de ' . $puntuacionTotal . ' puntos</p>';
+        echo '<hr class="color-primary"><h5 class="text-center">Tu puntuación total es de ' . $puntuacionTotal . ' puntos</h5><br></div></div>';
 
         
         piePagina(); scriptRuta(); 

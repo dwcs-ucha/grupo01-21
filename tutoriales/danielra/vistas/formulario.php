@@ -19,6 +19,7 @@
     linksRuta(); //añadimos los links de estilo de Bootstrap 
     $error = array();
     $puntuacion = 0;
+    $mensaxe = "";
         if(isset($_POST['submit'])) { //si el usuario envía el formulario
             /** Validación Ej. 1 **/
                 if(isset($_POST['condicional'])) { //si tiene cubierta la primera pregunta
@@ -37,7 +38,7 @@
                     }
                 }
             /** Validación Ej. 3 **/
-                if(isset($_POST['variable'])) {
+                if(!empty($_POST['variable'])) {
                     $ej3 = strtolower($_POST['variable']);
                     $ej3 = trim($ej3);
                         if($ej3==$preguntas[2]->respuesta) {
@@ -66,13 +67,23 @@
                         in_array($preguntas[4]->respuesta[1], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: Tratar de que nuestros electrodomésticos cuenten con la etiqueta de eficiencia energética más elevada (A++ o A+)";
                     }
                 }
-                Tutorial::añadirPuntuacion(1,$puntuacion);
+             
+                isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(1,$puntuacion) : "";
         }
+        !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : "";
     ?>
 </head>
 <body>
     <?php menuRuta(); ?>
-    <h1>Examen del tutorial de Falling Ballons</h1>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="my-4 text-center text-primary">Examen del tutorial de Falling Ballons</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
+    <div class="col-lg-12">
     <form action="./formulario.php" method="post">
         <p><?php echo $preguntas[0]->cod;?>. <?php echo $preguntas[0]->enunciado;?></p>
             <select name="condicional">
@@ -100,11 +111,14 @@
             <label><input type="checkbox" name="eficiencia[]" value="<?php print $preguntas[4]->respuesta[0] ?>">Prescindir de las bombillas incandescentes y optar por halógenas o LED</label><br>
             <label><input type="checkbox" name="eficiencia[]" value="<?php print $preguntas[4]->respuesta[1] ?>">Tratar de que nuestros electrodomésticos cuenten con la etiqueta de eficiencia energética más elevada (A++ o A+)</label><br>
             <label><input type="checkbox" name="eficiencia[]" value="indicador">No apagar el indicador de apagado de la televisión</label><br>
-        <button type="submit" name="submit">Enviar</button>
+        <button class="btn btn-primary" type="submit" name="submit">Enviar</button>
     </form>
+    </div>
+  </div>
     <?php 
-        foreach ($error as $valor) echo '<p style="color:red">' . $valor . '</p>';
-        isset($_POST['submit']) ? print '<p>Tu puntuación es: ' . $puntuacion .'/5</p>' : "";
+        foreach ($error as $valor) echo '<p class="text-center">' . $valor . '</p>';
+        isset($_POST['submit']) ? print '<h1 class="text-center">Tu puntuación es: ' . $puntuacion .'/5</h1>' : "";
+        echo $mensaxe;
         piePagina();
         scriptRuta();
     ?>

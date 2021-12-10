@@ -36,10 +36,17 @@ function linksRuta() {
   <link rel="stylesheet" href="<?php echo $nav; ?>css/custom/all/styles.css">
   <link rel="stylesheet" href="<?php echo $nav; ?>css/custom/1.css">
   <style>
+    html {
+      min-height: 100%;
+      position: relative;
+    }
     body {
       margin-top: 55px;
+      margin-bottom: 150px;
+      line-height:2;
     }
-    .footer {
+    footer {
+      position:absolute;
       bottom: 0;
       width: 100%;
     }
@@ -51,8 +58,24 @@ function linksRuta() {
       width:100%;
       box-shadow: -3px 5px 23px rgba(87, 87, 87, 0.2)  ; 
       -webkit-box-shadow: -3px 5px 23px rgba(87, 87, 87, 0.2)  ; 
-      -moz-box-shadow: -3px 5px 23px rgba(87, 87, 87, 0.2)  ;  
+      -moz-box-shadow: -3px 5px 23px rgba(87, 87, 87, 0.2)  ;
+      z-index: 4;
     }
+
+    h2 {
+      margin:20px 0 20px 0;
+      text-decoration:underline;
+    }
+
+    div  {
+      text-align: center;
+    }
+
+    input {
+      text-align:center;
+    }
+
+    
   </style>
 <?php
 } //cerramos llave de la función linksRuta()
@@ -157,15 +180,13 @@ function menuRuta(){
 
 /** Pie de página **/
 function piePagina(){
+  global $nav;
   ?>
   <!-- Footer -->
-  <footer class="footer py-1 bg-primary">
-    <div class="container">
-      <p class="m-0 text-center ">
-        <center class="text-white">////////////////////////////////////////////////////////////////////</center>
-        <center class="text-white">Pie de pagina</center> 
-        <center class="text-white">////////////////////////////////////////////////////////////////////</center>
-      </p>
+  <footer class="footer py-1 bg-primary p-4">
+    <div class="container p-2 text-center">
+       <img class="float-right" src="<?php echo $nav; ?>logos/logoCentro.png" width="100px">
+       <img class="float-right" src="<?php echo $nav; ?>logos/logoPlan.png" width="80px">
     </div>
   </footer>
 <?php

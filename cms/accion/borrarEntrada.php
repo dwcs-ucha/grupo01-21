@@ -6,6 +6,7 @@
     *@version: 1.00.00
     *
     */
+    include '../../menu.php';
 if (!isset($_SESSION['usuario'])) { //No caso de que o usuario non estea identificado:
     die("<p>Error - debe <a href='index.php'>identificarse</a>.</p>");
 }

@@ -14,10 +14,23 @@
 <head>
     <title>Tutorial Falling Balloons</title>
     <?php linksRuta(); ?>
+    <style>
+        div p {
+            text-align:justify;
+        }
+    </style>
 </head>
 <body>
     <?php menuRuta(); ?>
-    <h1>Tutorial de Scratch: Falling Balloons</h1>
+    <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="my-4 text-center text-primary">Tutorial de Scratch: Falling Balloons</h1>
+                        </div>
+                    </div>
+                </div>
+    <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-justify">
+    <div class="col-lg-12 text-justify">
     <h2>Descripción</h2>
     <p>
         En este tutorial aprenderemos a hacer en Scratch un juego similar al de "Falling Balloons" con temática de eficiencia energética.
@@ -80,7 +93,9 @@
         ¡Hasta otra!
     </p>
     <iframe src="https://scratch.mit.edu/projects/605887755/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
-    <br><a href="./formulario.php"><button>Ir al examen</button></a>
+    </div>
+    <br><a href="./formulario.php"><button class="btn btn-primary mx-auto">Ir al examen</button></a>
+    </div>
     <?php piePagina(); scriptRuta(); ?>
 </body>
 </html>
