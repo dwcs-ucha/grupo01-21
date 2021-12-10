@@ -30,7 +30,7 @@
             $puntuacion="0-0-0-0-0-0-0-0-0";
             $captcha = $_POST['g-recaptcha-response'];
             $secret = '6LctxY0dAAAAAI-JjPSJMPUFRvfncxAGNsWq4YZ6';
-            !$captcha ? $error[] = 'Tienes que verificar el captcha' : "";
+            !$captcha ? $error[] = 'Debe verificar el captcha' : "";
             $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
             $arr = json_decode($response, TRUE);
             if ($arr['success'] && empty($error)) {
@@ -65,7 +65,7 @@
                 Email:</br>
                 <input type="email" name="email" placeholder="Email"/></br></br>
                 <input type="hidden" name="activado" value="false"/>
-                <div class="g-recaptcha col-lg-12 mx-auto" data-sitekey="6LctxY0dAAAAAJAIY-2GH4FsvDE5dfOglqk_EjMX"></div>
+                <div class="g-recaptcha align-self-center" data-sitekey="6LctxY0dAAAAAJAIY-2GH4FsvDE5dfOglqk_EjMX"></div>
                 <input class="btn btn-primary col-lg-1" type="submit" name="submit" value="Registrarse"/> 
             </fieldset>
             </div>

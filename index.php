@@ -21,7 +21,9 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
 </head>
 
  <body class="d-flex flex-column min-vh-100">
-  <?php menuRuta();//Incluimos el menú en php?> 
+  <?php 
+  menuRuta();//Incluimos el menú en php
+  ?> 
 
   <!-- Header -->
   <header class="col-lg-12" style="background-color:#4285F4;padding:50px;text-align:center;">
@@ -37,7 +39,7 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
                   <div class="card bg-primary" id="card">
                   <a style="color: white; text-align:center" href="./tutoriales/' . $tutorial->ruta . '">
                     <div class="card-body" style="height: 300px">
-                      <img src="./tutoriales/img/' . $tutorial->img . '" width="90%"></img>
+                      <img src="./tutoriales/img/' . $tutorial->img . '" width="90%" style="border-radius:5px"></img>
                       <h3>' . $tutorial->titulo . '</h3>
                       <p style="font-size:0.8em">Autor: ' . $tutorial->autor .'</p>  
                     </div>

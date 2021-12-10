@@ -8,16 +8,16 @@
 */
 
 class Validaciones {
-    public static string $usuarioExp = '/[A-Za-z0-9]/'; 
-    public static string $contraseñaExp = '/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/';
-    public static string $nombreExp = '/^[A-ZÁÉÍÓÚ][a-záéíóú]*$/';
-    public static string $textoExp = '/[A-ZáéíóúÁÉÍÓÚñÑa-z0-9-.¿?!¡:;,]/'; 
+    const usuarioExp = '/[A-Za-z0-9]/'; 
+    const contraseñaExp = '/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/';
+    const nombreExp = '/^[A-ZÁÉÍÓÚ][a-záéíóú]*$/';
+    const textoExp = '/[A-ZáéíóúÁÉÍÓÚñÑa-z0-9-.¿?!¡:;,]/'; 
 
 public static function validaUsuario($usuario) {
     global $error;
     $usuarioValidado = "";
     if (!empty($usuario) && isset($_POST['submit'])) {
-        if (preg_match(self::$usuarioExp, $usuario)) {
+        if (preg_match(self::usuarioExp, $usuario)) {
             $usuarioValidado=$usuario;
         } else {
             $error[]= "O usuario só pode ter letras e números";
@@ -34,7 +34,7 @@ public static function validaContraseña($contraseña) {
     global $error;
     $contraseñaValidada = "";
     if (!empty($contraseña) && isset($_POST['submit'])) {
-         if (preg_match(self::$contraseñaExp, $contraseña)) {
+         if (preg_match(self::contraseñaExp, $contraseña)) {
             $contraseñaValidada = crypt($contraseña, 'saltdeproba');
         } else {
             $error[] = "La contraseña debe tener entre 6 e 16 caracteres, una minúscula, una mayúscula y un dígito como mínimo.";
@@ -91,7 +91,7 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
 
 public static function validaNombre($nombre) {
     global $error; 
-    if(isset($nombre) && preg_match(self::$nombreExp, $nombre) && filter_var($nombre, FILTER_SANITIZE_STRING)) {
+    if(isset($nombre) && preg_match(self::nombreExp, $nombre) && filter_var($nombre, FILTER_SANITIZE_STRING)) {
         trim($nombre);
         $nombre=filter_var($nombre, FILTER_SANITIZE_STRING);
     }
@@ -117,7 +117,7 @@ public static function validaEmail($email) {
 
 public static function validaTexto($texto) {
     global $error;
-    if(isset($texto) && preg_match(self::$textoExp, $texto) && filter_var($texto, FILTER_SANITIZE_STRING)) {
+    if(isset($texto) && preg_match(self::textoExp, $texto) && filter_var($texto, FILTER_SANITIZE_STRING)) {
         trim($texto);
         $texto=filter_var($texto, FILTER_SANITIZE_STRING);
     }
