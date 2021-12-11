@@ -51,6 +51,15 @@
             $this->puntuacion = $puntuacion;
         }
 
+        public function puntuacionTotal() {
+            $puntuacionTotal = 0;
+            $puntuacion = $this->getPuntuacion();
+            for ($i=1; $i<=count($puntuacion)-1; $i++) {
+                    $puntuacionTotal+=$puntuacion[$i];
+            }
+            return $puntuacionTotal;
+        }
+
 
 
     }

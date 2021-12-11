@@ -197,6 +197,15 @@ function scriptRuta(){
 <!-- Bootstrap core JavaScript -->
   <script src="<?php echo $nav; ?>js/jquery/jquery-3.5.1.slim.min.js"></script>
   <script src="<?php echo $nav; ?>js/bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4D0XJ7WG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G4D0XJ7WG8');
+</script>
 <?php
 }
 ?>
