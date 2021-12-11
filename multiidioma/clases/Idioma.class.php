@@ -11,10 +11,10 @@ class Idioma {
 
     public static function cambiarIdioma($arrayValores) {
         if (isset($_GET['idioma']) || isset($_COOKIE['idioma'])) {
-            $idioma = "";
+            $idioma="";
             if (isset($_GET['idioma']) && $_COOKIE['idioma']!=$_GET['idioma']){
                 unset($_COOKIE['idioma']);
-                setCookie('idioma', $_GET['idioma']);
+                setCookie('idioma', $_GET['idioma'], (time() + 86400), '/');
                 $idioma=$_GET['idioma'];
             } else {
                 $idioma= $_COOKIE['idioma'];

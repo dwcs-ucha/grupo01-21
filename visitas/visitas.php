@@ -12,7 +12,6 @@
 
 <head>
     <title>Visitas - UchaTech</title>
-    <link rel="stylesheet" href="./css/estilo.css">
     <?php
     include '../clases/DAO.class.php';
     include '../menu.php';
@@ -22,16 +21,23 @@
 </head>
 
 
-<body>
+<body class="bg-primary bg-opacity-50">
     <?php
     menuRuta(); //Incluimos el menú en php (No funciona en casa)
     ?>
-
-    <br><h1 id="titulo" align="center">Visitas</h1><br><br>
-    <table align="center">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="my-4 text-center text-white">Visitas de usuarios</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
+    <div class="col-lg-12">
+    <table class="table text-center">
         <?php
         //Pone la cabecera de la tabla
-        $cabecera = array('Usuario', 'día da semana', 'Mes do Ano', ' Ano ', 'Hora da visita');
+        $cabecera = array('Usuario', 'Día', 'Mes', ' Año ', 'Hora');
         for ($i = 0; $i < count($cabecera); $i++) {
             echo '<th>' . $cabecera[$i] . '</th>';
         }
@@ -52,6 +58,8 @@
             }
         ?>
     </table>
+        </div>
+        </div>
 <?php
         }
 ?>

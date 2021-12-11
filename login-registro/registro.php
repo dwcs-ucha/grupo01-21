@@ -38,7 +38,7 @@
                 $arrayUsuarios= DAO::obtenerUsuarios($archivo);
                 $arrayUsuarios[] = $usuarioValidado;
                 DAO::escribirUsuarios($archivo,$arrayUsuarios);
-                //header("Location: ./registrado.php") ;
+                header("Location: ./login.php") ;
             }
             
         }

@@ -66,7 +66,7 @@ else {
         });
 </script>
 <?php 
-    $destinatarios = array($usuario->getEmail());
+    
     if(isset($_POST['titulo']) && isset($_POST['contenido']) && isset($_POST['submit'])) {
         //Guardamos la entrada en un archivo .html y en el csv que asocia la entrada a un índice
         $ruta = '../entradas/' . $cod . '.html'; //llevamos el archivo a la carpeta /entradas
@@ -76,7 +76,14 @@ else {
         $entrada = new Entrada($cod, $ruta, $_POST['titulo'], $autor, $fecha); //creamos objeto de entrada
         $arrayCSV[] = $entrada;  //guardamos en el array de entradas
         DAO::escribirEntradas('../csv/entradas.csv', $arrayCSV);  //escribimos de nuevo el archivo
-        Correo::enviarCorreo($destinatarios, "prueba", file_get_contents($ruta));
+        $arrayUsuarios = DAO::obtenerUsuarios('../../login-registro/csv/usuarios.csv');
+        $destinatarios = array();
+        foreach ($arrayUsuarios as $usuarioDato) {
+            $destinatarios[] = $usuarioDato->getEmail();
+        }
+        $fichero=null;
+        $asunto='Nueva entrada de UchaTech: "' . $_POST['titulo'] . '"';
+        Correo::enviarCorreo($destinatarios,$asunto, file_get_contents($ruta), $fichero);
     }
     piePagina();
     scriptRuta();

@@ -69,7 +69,8 @@
                 }
                 isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(3,$puntuacion) : "";
         }
-        !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : "";
+        !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
+        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../../perfil.php">perfil</a></p>';
     ?>
 </head>
 <body>
@@ -118,8 +119,8 @@
     </div>
     </div>
     <?php 
-        foreach ($error as $valor) echo '<p style="color:red">' . $valor . '</p>';
-        isset($_POST['submit']) ? print '<p>Tu puntuación es: ' . $puntuacion .'/5</p>' : "";
+        foreach ($error as $valor) echo '<p class="text-center" style="color:red">' . $valor . '</p>';
+        isset($_POST['submit']) ? print '<p class="text-center">Tu puntuación es: ' . $puntuacion .'/5</p>' : "";
         echo $mensaxe;
         piePagina();
         scriptRuta();
