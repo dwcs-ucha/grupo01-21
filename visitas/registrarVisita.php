@@ -1,7 +1,7 @@
 <?php
 $cookieUsuario = "visitas";
 $fechayHora = date('D d / F / Y / H:i:s');
-
+ 
 if (isset($_COOKIE['fechas'])) {
 
     $fechas = explode(',', $_COOKIE['fechas']);
