@@ -21,12 +21,12 @@
     </div>
     <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
     <div class="col-lg-12">
-        <header class="centrado"><h1>BIENVENIDOS AL TURORIAL DEL JUEGO  SPACE INVADERS</h1></header>
-       <h2 class="centrado"> EN ESTE TUTORIAL CREAREMOS ESTA VERSIÓN DEL JUEGO</h2>
+        <h2>Descripción</h2>
+        <p>Bienvenidos al tutorial de Space Invaders, donde crearemos esta versión del juego:</p>
        <center><iframe src="https://scratch.mit.edu/projects/607852941/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe></center>
     </div>
      <div>
-       <h3>PASO 1 FONDOS :</h3>
+       <h2>Diseño y lógica</h2>
      <p>
         
          1.1-Comenzaremos por crear los fondos de nuestro juego, necesitaremos ir a la parte inferior derecha de nuestra pantalla a la pestaña Escenarios.
@@ -110,12 +110,11 @@
             </p>
            <span class="imagenes"><img src="capturas/codigomarciano6.JPG"/></span> 
             <h4>Enhorabuena, ya tienes tu juego. ¡DISFRUTALO!</h4>
-            <p class="centrado">Te dejamos aquí un test de conocimientos sobre el juego. Nos ayudaría que lo hicieras. </p>
-            <p class="centrado">MUCHAS GRACIAS</p>
+            <p class="centrado">Te dejamos aquí un test de conocimientos sobre el juego. Nos ayudaría que lo hicieras. Muchas gracias.</p>
             <form>
                 <center>
-                    <a class="btn btn-primary" href="./test.php" class="enlacetest" >HACER TEST</a>  </br>
-                    <a href="./disfraces.zip" class="enlaceboton"><img src="./ZIP.png" width="50px"/>Descargar disfraces</a>
+                    <a href="./disfraces.zip" class="enlaceboton"><img src="./ZIP.png" width="50px"/>Descargar disfraces</a><br>
+                    <a class="btn btn-primary" href="./test.php" class="enlacetest" >HACER TEST</a> 
             </center>
             </form>
         </div>

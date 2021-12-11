@@ -174,6 +174,7 @@ function menuRuta(){
     </div>
   </nav>
   <?php
+  !isset($_COOKIE['aceptadas']) ? include $_SERVER['DOCUMENT_ROOT'] . "/grupo01-21/avisoCookies.php" : ""; //aviso de cookiess
 } //cerramos la función menuRuta()
 
 
