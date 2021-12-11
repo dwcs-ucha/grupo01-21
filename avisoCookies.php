@@ -1,5 +1,11 @@
 <?php
-
+/*
+*
+*Menú
+*@autor: Pablo Vázquez Pereiro
+*@version: 1.00.00
+*
+*/
 
 ?>
 <html>
@@ -49,7 +55,7 @@
 <div class="aviso">
     <br>
     <form method="post" action="<?php echo $nav . "avisoCookies.php"?>">
-    <p class="avisoTexto">Utilizamos cookies para una mejorar tu experiencia en UchaTech</p>
+    <p class="avisoTexto">Utilizamos cookies para mejorar tu experiencia en UchaTech</p>
     <input type="submit" name="aceptoCookies" class="btn btn-primary" value="Aceptar">
     </form>
 </div>

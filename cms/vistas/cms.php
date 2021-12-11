@@ -36,6 +36,12 @@ else {
     $cod++; //añadimos un valor al código más alto
     $autor = $usuario->getNombreUsuario(); //Recoge el valor de la variable de sesión de usuario 
     $error = array();
+    $valoresBlog = array (
+        'nuevaEntrada' => 'Nueva entrada',
+        'titulo' => 'Titulo',
+        'entrada' => 'Entrada'
+    );
+    $valoresBlog = Idioma::cambiarIdioma($valoresBlog);
     ?>
 </head>
 <body class="bg-primary bg-opacity-50">
@@ -44,16 +50,16 @@ else {
     <div class="container p-4">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="my-4 text-center text-white">Nueva entrada</h1>
+                    <h1 class="my-4 text-center text-white"><?php echo $valoresBlog['nuevaEntrada'] ?></h1>
                 </div>
             </div>
         </div>
     <form action="./cms.php" method="post" enctype="multipart/form-data">
     <div class="row m-4 border border-primary shadow-lg p-0 bg-light text-center">
     <div class="col-lg-12">
-        <h2 class="p-2">Título</h2>
+        <h2 class="p-2"><?php echo $valoresBlog['titulo'] ?></h2>
         <input type="text" name="titulo">
-        <h2 class="p-2">Entrada</h2>
+        <h2 class="p-2"><?php echo $valoresBlog['entrada'] ?></h2>
         <textarea name="contenido" id="editor">
         </textarea>
         <p><button class="btn btn-primary m-4" type="submit" name="submit">Enviar</button></p>
