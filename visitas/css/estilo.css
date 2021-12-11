@@ -1,0 +1,21 @@
+html{
+    background-color: #85b6fd;
+
+}
+
+table {
+    
+    background-color: white;
+}
+
+td {
+    
+    text-align: center;
+    width: 100px;
+    height: auto;
+}
+
+#titulo{
+    background-color: #85b6fd;
+    color: white;
+}
