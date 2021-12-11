@@ -71,7 +71,7 @@
                 isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(6,$puntuacion) : "";
         }
         !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
-        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../../perfil.php">perfil</a></p>';
+        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../perfil.php">perfil</a></p>';
     ?>
 </head>
 <body>
