@@ -43,7 +43,7 @@
             for ($index = 0; $index < count($fechas); $index++) {
                 //Segundo se divide en partes de la fecha dentro del array
                 $fechaPartida = explode('/', $fechas[$index]);
-                echo '<tr>';
+                echo '<tr>'; 
                 //Se muestra de una forma más ordenada
                 for ($index1 = 0; $index1 < count($fechaPartida); $index1++) {
                     echo '<td>' . $fechaPartida[$index1] . '</td>';
