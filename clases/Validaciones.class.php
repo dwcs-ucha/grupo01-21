@@ -64,6 +64,7 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
         if (hash_equals($cifrada, $contraseña)) { //se o usuario e contrasinal coinciden 
              $coinciden = true;
              $_SESSION['usuario'] = $arrayCSV[$i-1];
+            include_once('../visitas/registrarVisita.php');//encargado de añadir el seguimiento de ese día
             header("Location: ../index.php"); //levamos ao usuario á páxina de control de usuarios
         } else { $error[]="La contraseña no coincide con el usuario"; //en caso contrario enviamos erro
      }
