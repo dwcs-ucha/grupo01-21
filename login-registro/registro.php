@@ -58,6 +58,12 @@
         );
         $valoresRegistro = Idioma::cambiarIdioma($valoresRegistro);
         ?>
+        <style>
+            .hijo {
+                margin-left:33vw;
+            }
+            
+        </style>
         </head>
         <body class="bg-primary bg-opacity-50">
             <?php menuRuta(); ?>
@@ -80,7 +86,7 @@
                 <?php echo $valoresRegistro['email'] ?></br>
                 <input type="email" name="email" placeholder="Email"/></br></br>
                 <input type="hidden" name="activado" value="false"/>
-                <div class="g-recaptcha align-self-center" data-sitekey="6LctxY0dAAAAAJAIY-2GH4FsvDE5dfOglqk_EjMX"></div>
+                <div class="g-recaptcha hijo" data-sitekey="6LctxY0dAAAAAJAIY-2GH4FsvDE5dfOglqk_EjMX"></div> <br>
                 <input class="btn btn-primary col-lg-1" type="submit" name="submit" value="Registrarse"/> 
             </fieldset>
             </div>
