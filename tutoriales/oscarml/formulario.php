@@ -8,7 +8,7 @@
     *
     */
     include '../clases/Tutorial.class.php';
-    include './clases/Pregunta.class.php'; //añadimos la clase Pregunta
+    include '../clases/Pregunta.class.php'; //añadimos la clase Pregunta
     include '../../clases/DAO.class.php'; //añadimos la clase DAO
     include '../../menu.php'; //añadimos el menú
     $preguntas = DAO::obterPreguntas('./csv/preguntas.csv');
