@@ -2,7 +2,7 @@
 /*
 *
 *Clase Usuario
-*@autor: Marcos
+*@autor: Marcos y Óscar (función verificarUsuario)
 *@version: 1.00.00
 *
 */
@@ -60,8 +60,8 @@
             return $puntuacionTotal;
         }
 
-
-
+        public function verificarUsuario(){
+            $this->activado=true; //Modificamos el atributo activado del objeto a true
+        }
     }
-
 ?>
