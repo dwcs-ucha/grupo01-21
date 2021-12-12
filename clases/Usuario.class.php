@@ -61,7 +61,7 @@
         }
 
         public function verificarUsuario(){
-            $this->activado=true; //Modificamos el atributo activado del objeto a true
+            return $this->activado="true"; //Modificamos el atributo activado del objeto a true
         }
     }
 ?>
