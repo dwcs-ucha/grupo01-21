@@ -8,7 +8,7 @@
     *
     */
     include '../../clases/Tutorial.class.php';
-    include '.././clases/Pregunta.class.php'; //añadimos la clase Pregunta
+    include '.././clases/Preguntas.class.php'; //añadimos la clase Pregunta
     include '../../../clases/DAO.class.php'; //añadimos la clase DAO
     include '../../../menu.php'; //añadimos el menú
     $preguntas = DAO::obterPreguntas('.././csv/preguntas.csv');
@@ -39,7 +39,6 @@
                     }
                 }
             /** Validación Ej. 3 **/
-                if(isset($_POST['ej3'])) {
 		    if(isset($_POST['ej3'])) {
                     if($_POST['ej3']==$preguntas[2]->respuesta) {
                         $puntuacion++;
@@ -66,9 +65,9 @@
                         }
                 }
 	
- 	isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(5,$puntuacion) : "";
+ 	isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(8,$puntuacion) : "";
 
-     }
+            }
 
 	!isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
         $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../../perfil.php">perfil</a></p>';
@@ -107,7 +106,7 @@
 <input type="radio" name="ej4" value="<?php print $preguntas[3]->respuesta; ?>">c) Los comando de operadores pueden comparar datos</br>
 <p><?php echo $preguntas[4]->cod;?>. <?php echo $preguntas[4]->enunciado;?></p>
 <input type="text" name="ej5" value=""></br></br>
-<button name="Envio" type="submit" value="resultado">Resultado</button>
+<button class="btn btn-primary" name="submit" type="submit" value="resultado">Resultado</button>
 </form>
 </div>
   </div>

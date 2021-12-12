@@ -86,7 +86,7 @@
 
 
         <?php 
-            $puntuacion="0-0-0-0-0-0-0-0-0";
+            $puntuacion="0-0-0-0-0-0-0-0-0-0-0";
             $activado=false;
             foreach ($error as $valor) echo '<p class=error>' . $valor . '</p>';
             if (empty($error) && isset($_POST['submit'])) {
