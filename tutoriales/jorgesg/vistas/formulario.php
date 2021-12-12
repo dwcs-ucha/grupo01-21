@@ -65,7 +65,7 @@
                         }
                 }
 	
- 	isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(8,$puntuacion) : "";
+ 	isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(9,$puntuacion) : "";
 
             }
 

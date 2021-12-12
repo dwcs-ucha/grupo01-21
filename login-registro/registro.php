@@ -27,7 +27,7 @@
             $rol="usuario"; //Todos los que hagan login desde el registro son usuarios y no administradores
             $email=Validaciones::validaEmail($_POST['email']);
             $activado=$_POST['activado'];
-            $puntuacion="0-0-0-0-0-0-0-0-0-0-0";
+            $puntuacion="0-0-0-0-0-0-0-0-0-0-0"; //tantos 0s como numero de tutoriales + 1 (posición 0)
             $captcha = $_POST['g-recaptcha-response'];
             $secret = '6LctxY0dAAAAAI-JjPSJMPUFRvfncxAGNsWq4YZ6';
             !$captcha ? $error[] = 'Debe verificar el captcha' : "";
