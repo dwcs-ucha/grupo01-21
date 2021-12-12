@@ -79,7 +79,7 @@
             <p>Email</p>
             <input type="email" name="email" value="<?php isset($_POST['email']) ? print $correo=Validaciones::validaEmail($_POST['email']) : ""; ?>"> <br>
         </div>
-            <button class="btn btn-primary m-4 col-lg-1 mx-auto" type="submit" name="submit">Env<?php echo $valoresUsuarios['enviar'] ?>iar</button>
+            <button class="btn btn-primary m-4 col-lg-1 mx-auto" type="submit" name="submit"><?php echo $valoresUsuarios['enviar'] ?></button>
         </form>
             </div>
             </div>

@@ -60,17 +60,17 @@
             <div class="container p-4">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="my-4 text-center text-white"><?php echo $valoresLogin['registro'] ?></h1>
+                            <h1 class="my-4 text-center text-white"><?php echo $valoresRegistro['registro'] ?></h1>
                         </div>
                     </div>
                 </div>
                 <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
                 <div class="col-lg-12">
-                <?php echo $valoresLogin['usuario'] ?></br>
+                <?php echo $valoresRegistro['usuario'] ?></br>
                 <input type="text" name="nombreUsuario" placeholder="Nombre Usuario"/></br></br>
-                <?php echo $valoresLogin['contraseña'] ?></br>
+                <?php echo $valoresRegistro['contraseña'] ?></br>
                 <input type="password" name="contraseña" placeholder="Contraseña"/></br></br>
-                <?php echo $valoresLogin['email'] ?></br>
+                <?php echo $valoresRegistro['email'] ?></br>
                 <input type="email" name="email" placeholder="Email"/></br></br>
                 <input type="hidden" name="activado" value="false"/>
                 <div class="g-recaptcha align-self-center" data-sitekey="6LctxY0dAAAAAJAIY-2GH4FsvDE5dfOglqk_EjMX"></div>
