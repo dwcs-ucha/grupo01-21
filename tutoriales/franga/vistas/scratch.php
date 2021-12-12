@@ -1,7 +1,7 @@
 <?php
     /*
     *
-    *Tutorial de Labirinthya
+    *Tutorial de Labirinthya 
     *@autor: FranciscoGB
     *@version: 1.00.00
     *
