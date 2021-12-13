@@ -64,7 +64,7 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
                                      //ao saír do anterior bucle sumamos un valor de $i aínda que xa a tivéramos atopado
         if (hash_equals($cifrada, $contraseña)) { //se o usuario e contrasinal coinciden 
              $coinciden = true;
-             if($arrayCSV[$i-1]->getActivado() == "true") {
+             if($arrayCSV[$i-1]->getActivado() == "true") { //Comprobamos que el atributo activado sea igual a true para que solo pueda acceder si ha verificado su cuenta
                 $activado=true;
                 $_SESSION['usuario'] = $arrayCSV[$i-1];
                 include_once('../visitas/registrarVisita.php');//encargado de añadir el seguimiento de ese día
@@ -73,7 +73,7 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
         } else { $error[]="La contraseña no coincide con el usuario"; //en caso contrario enviamos erro
      }
 
-    } else $error[]="El usuario no exise"; //en caso de que non se atope no CSV enviamos erro
+    } else $error[]="El usuario no existe"; //en caso de que non se atope no CSV enviamos erro
     return $coinciden;
  }
 

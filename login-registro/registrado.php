@@ -16,14 +16,11 @@
     </head>
     <body>
         <h4 style="color:green">Se le ha enviado un email de verificación, por favor compruebe su correo: <?php echo $_SESSION['email'];?></h4>
-        
-    </body>
-
-</html>
 <?php
     }
     else{
         header("Location: ./login.php");
-
     }
-?>
+?> 
+    </body>
+</html>

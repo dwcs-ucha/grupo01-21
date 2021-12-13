@@ -61,7 +61,7 @@
         }
 
         public function verificarUsuario(){
-            return $this->activado="true"; //Modificamos el atributo activado del objeto a true
+            return $this->activado="true"; //Modificamos el atributo activado del objeto a true, debe ser un string porque sino al guardarlo en el archivo CSV el valor booleano true se convierte en un 1
         }
     }
 ?>

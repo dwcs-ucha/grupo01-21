@@ -38,14 +38,14 @@
                 $arrayUsuarios= DAO::obtenerUsuarios($archivo);
                 $arrayUsuarios[] = $usuarioValidado;
                 DAO::escribirUsuarios($archivo,$arrayUsuarios);
-                $url="https://grupo012122dwcs.uchaweb2.es/grupo01-21/login-registro/verificacionCuenta.php?usuario=".$_POST['nombreUsuario']; //url del enlace del mensaje
+                $url="https://grupo012122dwcs.uchaweb2.es/grupo01-21/login-registro/verificacionCuenta.php?usuario=".$_POST['nombreUsuario']; //url del enlace del mensaje con el nombre del usuario
                 $mensaje="Gracias por registrarte en nuestra página ".$_POST['nombreUsuario']."!<br/><br/>Haz clic en este enlace para verificar tu cuenta:<br/><br/>
                 <a style='padding: 10px; font-size: 15px; font-weight: bold; background-color: #0099ff; color: white; border-radius: 50px;'
                 href=$url>Verificar su cuenta</a>"; //Mensaje para email
                 Correo::enviarCorreo($_POST['email'], "Verificación de cuenta", $mensaje, null); //Llamamos a la función para enviar un email
-                $_SESSION['nombreUsuario']=$_POST['nombreUsuario']; //Creamos un $_SESSION para que solo se pueda acceder a la página de registrado.php si lo estás
+                $_SESSION['nombreUsuario']=$_POST['nombreUsuario']; //Creamos un $_SESSION para que solo se pueda acceder a la página de registrado.php si estás registrado
                 $_SESSION['email']=$_POST['email']; //Guardamos el email en $_SESSION para poder usarlo en registrado.php
-                header("Location: ./registrado.php") ; //Enviamos al usuario a la página registrado
+                header("Location: ./registrado.php") ; //Enviamos al usuario a la página registrado.php
             }
             
         }
