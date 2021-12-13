@@ -49,25 +49,25 @@
 	Comenzaremos subiendo las imagenes de los elementos renovables. Para esto, nos dirigimos a la esquina inferior derecha, en el icono de Añadir objeto > Subir objeto: <br>
 	</p>
 
-	<img src="../img/imagen1.png" width="485">
+	<img src="../img/Imagen1.png" width="485">
 
 	<p>Para este juego abrá tres elementos renovables.
 	</p>
 
-	<img src="../img/imagen2.png" width="485">
+	<img src="../img/Imagen2.png" width="485">
 
 	<p>
 	A continuación subiremos los no renovables. <br>
 	Serán tres elementos:
 	</p>
 
-	<img src="../img/imagen3.png" width="485">
+	<img src="../img/Imagen3.png" width="485">
 
 	<p>
 	Ahora añadimos a Abby que será la que introduzca el juego.(Abby es un sprite que ya está en scratch)
 	</p>
 
-	<img src="../img/imagen4.png" width="485">
+	<img src="../img/Imagen4.png" width="485">
 	<p>
 	Ya tenemos el diseño del juego casi terminado, falta añadir los fondos, en este caso son tres, uno para cuando Abby introduce el juego, otro para el transcurso del juego y el último para cuando ganemos.(Igual que con Abby estos fondos están ya en el scratch)<br>
 	Nuestros fondos serán sencillos, el primero un habitación:
