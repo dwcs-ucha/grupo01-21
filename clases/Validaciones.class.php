@@ -20,7 +20,7 @@ public static function validaUsuario($usuario) {
         if (preg_match(self::usuarioExp, $usuario)) {
             $usuarioValidado=$usuario;
         } else {
-            $error[]= "O usuario só pode ter letras e números";
+            $error[]= "El usuario solo puede tener letras y números";
             $usuarioValidado="";
         }
     } else {
@@ -37,7 +37,7 @@ public static function validaContraseña($contraseña) {
          if (preg_match(self::contraseñaExp, $contraseña)) {
             $contraseñaValidada = crypt($contraseña, 'saltdeproba');
         } else {
-            $error[] = "La contraseña debe tener entre 6 e 16 caracteres, una minúscula, una mayúscula y un dígito como mínimo.";
+            $error[] = "La contraseña debe tener entre 6 y 16 caracteres, una minúscula, una mayúscula y un dígito como mínimo.";
             $contraseñaValidada="";
         }
     } else {
@@ -123,7 +123,7 @@ public static function validaTexto($texto) {
     }
     else {
         $texto = "";
-        $error[] = "O texto non é correcto (baleiro ou contén carácteres especiais non permitidos)";
+        $error[] = "El texto no es correcto (vacío o contiene caracteres especiales no permitidos)";
     }
     $arrayDatos[]=$texto;
     return $texto;
