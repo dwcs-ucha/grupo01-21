@@ -21,7 +21,7 @@
 
     //Si quieres mandar algún archivo adjunto podrás hacerlo de dos formas, dependiendo de la cantidad que quieras mandar
     //Si solo quieres mandar uno puedes hacerlo así (asegurate de poner bien la ruta del fichero e introdúcela correctamente, acuerdate que tiene que estar guardado en el servidor)
-    //IMPORTANTE: Si quieres enviar una imagen asegurate de que sea un JPG o JPEG, si envias un PNG el correo se enviará 2 veces a causa de un error (lo estoy intentando solucionar)
+    //IMPORTANTE: Si quieres enviar una imagen asegurate de que sea un JPG o JPEG, si envias un PNG el correo se enviará 2 veces a causa de un error
     $fichero="archivo.pdf";
 
     //Si quieres mandar varios tendrás que crear un array de esta forma
