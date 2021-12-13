@@ -2,7 +2,7 @@
 <?php
     /*
     *
-    *Tutorial de Scratch: Falling Balloons
+    *Tutorial de Scratch: Geometry Dash
     *@autor: Óscar Martínez López
     *@version: 1.00.00
     *
@@ -28,7 +28,7 @@
                             <h1 class="my-4 text-center text-primary">Tutorial de Scratch: Geometry Dash</h1>
                         </div>
                     </div>
-                </div>
+    </div>
     <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-justify">
     <div class="col-lg-12 text-justify">
     <h2>Descripción</h2>
