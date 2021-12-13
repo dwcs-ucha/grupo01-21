@@ -135,7 +135,7 @@
   </div>
     <?php 
         foreach ($error as $valor) echo '<p class="text-center">' . $valor . '</p>';
-        isset($_POST['submit']) ? print '<h1 class="text-center">Tu puntuación es: ' . $puntuacion .'/5</h1>' : "";
+        isset($_POST['submit']) ? print '<h1 class="text-center">Tu puntuación es: ' . $puntuacion .'/6</h1>' : "";
         echo $mensaxe;
         piePagina();
         scriptRuta();
