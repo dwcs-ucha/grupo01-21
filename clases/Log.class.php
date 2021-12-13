@@ -8,16 +8,13 @@
 */
 
     class Log {
-        private $usuario;
-        private $mensaje;
-        private $fecha;
 
-        public function __construct($usuario, $mensaje){
-            $this->$fecha = date("r");
-            $this->$usuario = $usuario;
-            $this->$mensaje = $mensaje;
-            $ddf = fopen('../log/log.txt','a'); 
-            fwrite($ddf,'[' . $fecha . '] ' . $usuario . ' ' . $mensaje . '\r\n'); 
+        public static function log($mensaje){
+            
+            $usuario = $_SESSION['usuario'];
+            $fecha = date("r");
+            $ddf = fopen('../log/log.log','a'); 
+            fwrite($ddf,'[' . $fecha . '] ' . $usuario->getNombreUsuario() . ' ' . $mensaje . '\r\n'); 
             fclose($ddf); 
         } 
     }

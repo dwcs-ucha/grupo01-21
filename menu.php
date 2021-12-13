@@ -11,6 +11,7 @@
 $nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
 include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/multiidioma/clases/Idioma.class.php';
 include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/clases/Usuario.class.php';
+include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/clases/Log.class.php';
 session_start();
 isset($_SESSION['usuario']) ? $usuario=$_SESSION['usuario'] : "" ;
 
