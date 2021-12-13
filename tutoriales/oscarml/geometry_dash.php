@@ -91,7 +91,7 @@
 
         Ahora crearemos unas partículas que se generarán detrás del jugador cuando está tocando el suelo simulando velocidad.
     </p>
-    <img src="./img/disfrazParticulas.PNG" width="700"><br/><br/>
+    <img src="./img/disfrazParticulas.png" width="700"><br/><br/>
     <p>
         Empezaremos creando un disfraz muy simple, un cuadrado del color que quieras. Cabe remarcar que tú puedes hacer la forma que más te guste. 
     </p>
