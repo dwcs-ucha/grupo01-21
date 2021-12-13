@@ -28,7 +28,7 @@
                         </div>
                     </div>
     </div>
-        <?php
+<?php
             if(isset($_GET["usuario"])){ //Se comprueba si se ha pasado algún usuario en la url
                 $usuarioVerificar=$_GET["usuario"]; //De haberla, la guardamos en esta variable
                 $cont=0; //Iniciamos un contador a 0 para el bucle while
@@ -48,6 +48,8 @@
             }
             else
                 echo "<h4 style='color:red; text-align:center'>No hay ningún usuario que verificar.</h4>";
-        ?>
+
+            piePagina(); scriptRuta();
+?>
     </body>
 </html>
