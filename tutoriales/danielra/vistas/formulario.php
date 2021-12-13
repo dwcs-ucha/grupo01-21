@@ -8,7 +8,7 @@
     *
     */
     include '../../clases/Tutorial.class.php';
-    include '.././clases/Pregunta.class.php'; //añadimos la clase Pregunta
+    include '../../clases/Pregunta.class.php'; //añadimos la clase Pregunta
     include '../../../clases/DAO.class.php'; //añadimos la clase DAO
     include '../../../menu.php'; //añadimos el menú
     $preguntas = DAO::obterPreguntas('.././csv/preguntas.csv');
@@ -67,10 +67,19 @@
                         in_array($preguntas[4]->respuesta[1], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: Tratar de que nuestros electrodomésticos cuenten con la etiqueta de eficiencia energética más elevada (A++ o A+)";
                     }
                 }
+            /** Validación Ej. 6 **/
+                if(isset($_POST['seccion'])) {
+                    if($_POST['seccion']==$preguntas[5]->respuesta) {
+                        $puntuacion++;
+                    }else {
+                        $error[]=$preguntas[5]->error();
+                    }
+                }
              
                 isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(1,$puntuacion) : "";
         }
-        !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : "";
+        !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
+        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../../perfil.php">perfil</a></p>';
     ?>
 </head>
 <body>
@@ -111,6 +120,15 @@
             <label><input type="checkbox" name="eficiencia[]" value="<?php print $preguntas[4]->respuesta[0] ?>">Prescindir de las bombillas incandescentes y optar por halógenas o LED</label><br>
             <label><input type="checkbox" name="eficiencia[]" value="<?php print $preguntas[4]->respuesta[1] ?>">Tratar de que nuestros electrodomésticos cuenten con la etiqueta de eficiencia energética más elevada (A++ o A+)</label><br>
             <label><input type="checkbox" name="eficiencia[]" value="indicador">No apagar el indicador de apagado de la televisión</label><br>
+        <p><?php echo $preguntas[5]->cod;?>. Selecciona la opción correcta. <br>
+        <?php echo $preguntas[5]->enunciado;?></p>
+            <input type="radio" value="<?php print $preguntas[5]->respuesta; ?>" name="seccion">
+            <label for="<?php print $preguntas[5]->respuesta; ?>"><img src="../img/apariencia.JPG"></label>
+            <input type="radio" value="control" name="seccion">
+            <label for="control"><img src="../img/control.JPG"></label>
+            <input type="radio" value="movimiento" name="seccion">
+            <label for="movimiento"><img src="../img/movimiento.JPG"></label>
+             <br>
         <button class="btn btn-primary" type="submit" name="submit">Enviar</button>
     </form>
     </div>

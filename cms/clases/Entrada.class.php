@@ -22,8 +22,5 @@
             $this->fecha = $fecha;
         }
 
-        public function guardarEntrada() {
-
-        }
         
     }

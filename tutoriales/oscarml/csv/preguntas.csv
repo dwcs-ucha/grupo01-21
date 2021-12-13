@@ -1,0 +1,5 @@
+1,¿Cuantos disfraces tenemos que crear para el suelo?,Tantos como partes distintas del nivel queramos hacer,simple
+2,Los disfraces de los obstáculos son exactamente iguales a los del suelo.,Falso,simple
+3,Para saber que hemos llegado a la meta hacemos un 'broadcast win' desde el objeto:,win,simple
+4,"En el objeto de las partículas de jugador cuando definimos el bloque setup, en el if en la condición ponemos un or porque:",Ninguna es correcta,simple
+5,¿Cuales son las variables que hemos creado nosotros?,jugadorX-stop,multiple

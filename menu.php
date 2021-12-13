@@ -14,7 +14,7 @@ include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/clases/Usuario.class.php';
 session_start();
 isset($_SESSION['usuario']) ? $usuario=$_SESSION['usuario'] : "" ;
 
-function linksRuta() { 
+function linksRuta(){ 
   global $nav;
 ?>
 
@@ -75,7 +75,6 @@ function linksRuta() {
       text-align:center;
     }
 
-    
   </style>
 <?php
 } //cerramos llave de la función linksRuta()
@@ -91,7 +90,8 @@ function menuRuta(){
     'recursos' => 'Recursos',
     'idioma' => 'Idioma',
     'iniciarSesion' => 'Iniciar sesión',
-    'registro' => 'Registro'
+    'registro' => 'Registro',
+    'visitas' => 'Visitas'
   );
 
   $valoresMenu = Idioma::cambiarIdioma($valoresMenu);
@@ -126,6 +126,9 @@ function menuRuta(){
             <li class="nav-item me-4">
               <a class="nav-link text-white" href="<?php echo $nav; ?>login-registro/gestionUsuarios.php"><?php echo $valoresMenu['usuarios']; ?></a>
             </li>
+            <li class="nav-item me-4">
+            <a class="nav-link text-white" href="<?php echo $nav; ?>visitas/visitas.php"><?php echo $valoresMenu['visitas']; ?></a>
+          </li>
           <?php 
           } ?>
           <li class="nav-item dropdown">
@@ -171,130 +174,9 @@ function menuRuta(){
     </div>
   </nav>
   <?php
+  !isset($_COOKIE['aceptadas']) ? include $_SERVER['DOCUMENT_ROOT'] . "/grupo01-21/avisoCookies.php" : ""; //aviso de cookiess
 } //cerramos la función menuRuta()
 
-function menuLateral() {
-  
-  echo '<div class="container-fluid">
-  <div class="row shadow-lg">
-      <div class="col-lg-2  border p-2">
-          <div class="nav flex-column d-flex nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <h3 class="text-sm-start text-primary">Panel de Control</h3>
-              <button class="nav-link text-sm-start active " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Pagina</button>
-              <hr>
-              <button class="nav-link text-sm-start" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Entradas</button>
-              <hr>
-              <button class="nav-link text-sm-start" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Usuarios</button>
-              <hr>
-              <button class="nav-link text-sm-start" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Visitas</button>
-              <hr>
-          </div>
-          <hr>
-
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="rounded d-flex justify-content-start">
-                      <div class="col-md-0 col-sm-12 shadow-lg p-0 bg-light">
-                          <form name="login" action="' . $_SERVER['PHP_SELF'] . '" method="post">
-                              <div class="p-4">
-                                  <div class="input-group mb-3 text-center">
-                                      <div  class="border-primary w-100 p-4"style="border: solid 3px; border-radius: 15px;"><img src="../images/loginImagen/login_test.png" style="width: 100%;"></div>
-                                  </div>
-
-                                  <div class="input-group mb-3">
-                                      <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
-                                      @username
-                                  </div>
-
-                                  <div class="input-group mb-3">
-                                      <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
-                                      @username
-                                  </div>
-                                  <!-- Rehacer para php el boton
-                                  
-                                    <button class="btn btn-primary text-center mt-4 w-100" id="closeSesion" type="submit">
-                                      Cerrar Sesion
-                                  </button>
-     
-                                  -->
-
-
-                                  <a class="btn btn-primary text-center mt-4 w-100" href="./../../index.php">Cerrar Sesion</a>
-
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="col-lg-10  bg-light">
-          <div class="tab-content" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-
-                  <div class="row">
-                      <div class="col-lg-12">
-                          <iframe src="./index.php" class="shadow-lg border navbar-expand" style="width:100%; height:1080px;"></iframe>
-                      </div>
-
-                  </div>
-              </div>
-
-              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                  <div class="row">
-                      <div class="col-lg-6">
-                          <iframe src="../../assets/cms/vistas/cms.php" style="width:100%; height: 700px"></iframe>
-                          
-                      </div>
-                      <div class="col-lg-6">
-                          <iframe src="../../assets/cms/vistas/blog.php" style="width:100%; height:1080px;"></iframe>
-                      </div>
-                  </div>
-              </div>
-              <div class="tab-pane fade min-vh-100" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">First</th>
-                              <th scope="col">Last</th>
-                              <th scope="col">Handle</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>@mdo</td>
-                          </tr>
-                          <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>@fat</td>
-                          </tr>
-                          <tr>
-                              <th scope="row">3</th>
-                              <td colspan="2">Larry the Bird</td>
-                              <td>@twitter</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-
-              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                  <h3>Visitas</h3>
-                  Numero de visitas
-
-
-              </div>
-          </div>
-      </div>
-  </div>';
-}
 
 /** Pie de página **/
 function piePagina(){
@@ -316,6 +198,15 @@ function scriptRuta(){
 <!-- Bootstrap core JavaScript -->
   <script src="<?php echo $nav; ?>js/jquery/jquery-3.5.1.slim.min.js"></script>
   <script src="<?php echo $nav; ?>js/bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4D0XJ7WG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G4D0XJ7WG8');
+</script>
 <?php
 }
 ?>

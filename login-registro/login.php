@@ -18,7 +18,12 @@
         include("../clases/Validaciones.class.php");
         include("../menu.php");
         linksRuta();
-
+        $valoresLogin = array (
+            'usuario' => 'Usuario',
+            'contraseña' => 'Contraseña',
+            'enviar' => 'Enviar'
+        ); //array para el multiidioma
+        $valoresLogin = Idioma::cambiarIdioma($valoresLogin);
         $archivo=("./csv/usuarios.csv");
         $error = array();
         /*USUARIO ESCRITO CSV:
@@ -38,7 +43,6 @@
                 Validaciones::validaLogin($usuario, $contraseña, $arrayUsuarios);
             }
         }              
-            
     ?>  
        <body class="bg-primary bg-opacity-50">
         <?php menuRuta();//Incluimos el menú en php?>
@@ -54,11 +58,11 @@
                 </div>
                 <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
                 <div class="col-lg-12">
-                Nombre usuario:</br>
+                <?php echo $valoresLogin['usuario'] ?></br>
                 <input type="text" name="nombreUsuario" placeholder="Nombre Usuario"/></br></br>
-                Contraseña:</br>
+                <?php echo $valoresLogin['contraseña'] ?></br>
                 <input type="password" name="contraseña" placeholder="Contraseña"/></br></br>
-                <input class="btn btn-primary" type="submit" name="submit" value="Enviar"/></br></br>
+                <input class="btn btn-primary" type="submit" name="submit" value="<?php echo $valoresLogin['enviar'] ?>"/></br></br>
                 </div>
                 </div>
                 <?php

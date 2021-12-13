@@ -51,6 +51,7 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
     global $error;
     $encontrada = false;
     $coinciden = false;
+    $activado = false;
     $i = 0; 
     while(!$encontrada && $i<count($arrayCSV)) { //mentres que $encontrada sexa false
          if ($arrayCSV[$i]->getNombreUsuario() == $usuario) { //se o array na posición $i, 1 (usuario) é igual ao usuarioValidado
@@ -63,12 +64,16 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
                                      //ao saír do anterior bucle sumamos un valor de $i aínda que xa a tivéramos atopado
         if (hash_equals($cifrada, $contraseña)) { //se o usuario e contrasinal coinciden 
              $coinciden = true;
-             $_SESSION['usuario'] = $arrayCSV[$i-1];
-            header("Location: ../index.php"); //levamos ao usuario á páxina de control de usuarios
+             if($arrayCSV[$i-1]->getActivado() == "true") { //Comprobamos que el atributo activado sea igual a true para que solo pueda acceder si ha verificado su cuenta
+                $activado=true;
+                $_SESSION['usuario'] = $arrayCSV[$i-1];
+                include_once('../visitas/registrarVisita.php');//encargado de añadir el seguimiento de ese día
+                header("Location: ../index.php"); //levamos ao usuario á páxina de control de usuarios
+             } else $error[]="Debes activar el correo en el link que enviamos a " . $arrayCSV[$i-1]->getEmail();
         } else { $error[]="La contraseña no coincide con el usuario"; //en caso contrario enviamos erro
      }
 
-    } else $error[]="El usuario no exise"; //en caso de que non se atope no CSV enviamos erro
+    } else $error[]="El usuario no existe"; //en caso de que non se atope no CSV enviamos erro
     return $coinciden;
  }
 
