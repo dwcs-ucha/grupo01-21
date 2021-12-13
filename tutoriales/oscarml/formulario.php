@@ -29,7 +29,7 @@
                         $error[]=$preguntas[0]->error(); //en caso contrario, enviamos el error
                     }
                 }
-            /** Validación Ej. 2 **/
+            //Validación Ej. 2
                 if(isset($_POST['obstaculos'])) {
                     if($_POST['obstaculos']==$preguntas[1]->respuesta) {
                         $puntuacion++;
@@ -37,7 +37,7 @@
                         $error[]=$preguntas[1]->error();
                     }
                 }
-            /** Validación Ej. 3 **/
+            //Validación Ej. 3
                 if(!empty($_POST['Win'])) {
                     $ej3 = strtolower($_POST['Win']);
                     $ej3 = trim($ej3);
@@ -47,7 +47,7 @@
                             $error[]=$preguntas[2]->error();
                         }
                 }
-            /** Validación Ej. 4 **/
+            //Validación Ej. 4
                 if(isset($_POST['particulas'])) {
                     if($_POST['particulas']==$preguntas[3]->respuesta) {
                         $puntuacion++;
@@ -55,7 +55,7 @@
                         $error[]=$preguntas[3]->error();
                     }
                 }
-            /** Validación Ej. 5 **/
+            //Validación Ej. 5
                 if(isset($_POST['variables'])) {
                     $ej5=$_POST['variables'];
                     if(in_array('indicador', $ej5)) {
@@ -63,8 +63,8 @@
                         <br>jugadorX
                         <br>stop';
                     } else {
-                        in_array($preguntas[4]->respuesta[0], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: Prescindir de las bombillas incandescentes y optar por halógenas o LED";
-                        in_array($preguntas[4]->respuesta[1], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: Tratar de que nuestros electrodomésticos cuenten con la etiqueta de eficiencia energética más elevada (A++ o A+)";
+                        in_array($preguntas[4]->respuesta[0], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: jugadorX";
+                        in_array($preguntas[4]->respuesta[1], $ej5) ? $puntuacion+=0.5 : $error[] = "5. Respuesta correcta: stop";
                     }
                 }
              
@@ -85,7 +85,7 @@
     </div>
     <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
     <div class="col-lg-12">
-    <form action="./formulario.php" method="post">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <p><?php echo $preguntas[0]->cod;?>. <?php echo $preguntas[0]->enunciado;?></p>
             <select name="disfraces">
                 <option value="" <?php !isset($_POST['disfraces']) ? print 'selected="true"': ""?> disabled>Selecciona</option>
