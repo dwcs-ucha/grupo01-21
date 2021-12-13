@@ -2,7 +2,7 @@
 <?php
     /*
     *
-    *Tutorial de Scratch: Falling Balloons
+    *Tutorial de Scratch: Geometry Dash
     *@autor: Óscar Martínez López
     *@version: 1.00.00
     *
@@ -28,7 +28,7 @@
                             <h1 class="my-4 text-center text-primary">Tutorial de Scratch: Geometry Dash</h1>
                         </div>
                     </div>
-                </div>
+    </div>
     <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-justify">
     <div class="col-lg-12 text-justify">
     <h2>Descripción</h2>
@@ -66,6 +66,10 @@
         os dejo un zip para poder descargar todos los distintos disfraces (<em>costumes</em>), jugador, fondo y el resto recursos que podais necesitar. Cuando creamos un clon, lo mostramos, y relizamos un bucle que si stop es igual
         a 0 se coloque el nuevo suelo en la posición que indicamos y para eliminar un pequeño bug que se produce tenemos que poner el último if-else, para cuando un disfraz llegue al final se oculte y no se quede en pantalla.<br/><br/>
 
+        Este es un ejemplo de un disfraz del suelo:
+    </p>
+    <img src="./img/disfrazSuelo.PNG" width="700"><br/><br/>
+    <p>
         En el objeto FONDO tenemos algo similar:
     </p>
     <img src="./img/fondo.PNG" width="700"><br/><br/>
@@ -87,7 +91,7 @@
 
         Ahora crearemos unas partículas que se generarán detrás del jugador cuando está tocando el suelo simulando velocidad.
     </p>
-    <img src="./img/disfrazParticulas.PNG" width="700"><br/><br/>
+    <img src="./img/disfrazParticulas.png" width="700"><br/><br/>
     <p>
         Empezaremos creando un disfraz muy simple, un cuadrado del color que quieras. Cabe remarcar que tú puedes hacer la forma que más te guste. 
     </p>
@@ -124,6 +128,7 @@
     <p>
     Cuando recibamos 'win' mostraremos el botón y en la posición (0,0) y creamos un bucle que compruebe todo el rato si tenemos el ratón encima de él y estamos haciendo clic. De ser así enviaremos 'start'. Y por otra parte cuando recibamos 'start', lo ocultamos.
     </p>
+    <a href="./disfraces.zip"><button class="btn btn-primary mx-auto">Descargar disfraces</button></a><br/><br/>
     <iframe src="https://scratch.mit.edu/projects/608429159/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
     </div>
     <br><a href="./formulario.php"><button class="btn btn-primary mx-auto">Ir al examen</button></a>

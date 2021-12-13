@@ -101,7 +101,7 @@ enctype="multipart/form-data" text-align="center">
 <?php
 	if(isset($_POST['resultado'])){
 	
-           echo '<p class="text-center">Has tenido '.$aciertos." aciertos y ".$errores." errores.</p>";
+           echo '<h1 class="text-center">Has tenido '.$aciertos." aciertos y ".$errores." errores.</h1>";
 			
 }
     echo $mensaxe;
