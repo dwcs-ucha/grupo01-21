@@ -66,6 +66,10 @@
         os dejo un zip para poder descargar todos los distintos disfraces (<em>costumes</em>), jugador, fondo y el resto recursos que podais necesitar. Cuando creamos un clon, lo mostramos, y relizamos un bucle que si stop es igual
         a 0 se coloque el nuevo suelo en la posición que indicamos y para eliminar un pequeño bug que se produce tenemos que poner el último if-else, para cuando un disfraz llegue al final se oculte y no se quede en pantalla.<br/><br/>
 
+        Este es un ejemplo de un disfraz del suelo:
+    </p>
+    <img src="./img/disfrazSuelo.PNG" width="700"><br/><br/>
+    <p>
         En el objeto FONDO tenemos algo similar:
     </p>
     <img src="./img/fondo.PNG" width="700"><br/><br/>
