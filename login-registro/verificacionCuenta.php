@@ -17,8 +17,17 @@
 <html>
     <head>
         <title>Verificación cuenta</title>
+        <?php linksRuta(); ?>
     </head>
     <body>
+    <?php menuRuta(); ?>
+    <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="my-4 text-center text-primary">Verificación cuenta</h1>
+                        </div>
+                    </div>
+    </div>
         <?php
             if(isset($_GET["usuario"])){ //Se comprueba si se ha pasado algún usuario en la url
                 $usuarioVerificar=$_GET["usuario"]; //De haberla, la guardamos en esta variable
