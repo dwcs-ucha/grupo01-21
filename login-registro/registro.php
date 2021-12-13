@@ -73,7 +73,7 @@
             enctype="multipart/form-data" text-align="center">
             <fieldset>
                 <?php
-                foreach ($error as $valor) echo '<br/><h4 style="color:red" class="text-center">' . $valor . '</h4>';
+                foreach ($error as $valor) echo '<br/><h4 style="color:red" class="text-center">' . $valor . '</h4>'; //Se muestran los errores por pantalla al principio de la página
                  if(isset($_POST['submit'])){ //ifs para mostrar este mensaje por pantalla cuando se registra correctamente
                       if ($arr['success'] && empty($error)) {
                           ?>
