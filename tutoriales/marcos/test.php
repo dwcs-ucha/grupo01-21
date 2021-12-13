@@ -18,31 +18,31 @@
 	$errores=0;
 	$aciertos=0;
 	if(isset($_POST['resultado'])){
-		if($_POST['primera']=="acierto1"){
+		if(isset($_POST['primera']) && $_POST['primera']=="acierto1"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['segunda']=="acierto2"){
+		if(isset($_POST['segunda']) && $_POST['segunda']=="acierto2"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['tercera']=="acierto3"){
+		if(isset($_POST['tercera']) && $_POST['tercera']=="acierto3"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['cuarta']=="nave"){
+		if(isset($_POST['cuarta']) && $_POST['cuarta']=="nave"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['quinta']=="acierto5"){
+		if(isset($_POST['quinta']) && $_POST['quinta']=="acierto5"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
@@ -51,7 +51,7 @@
             isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(2,$aciertos) : "";
     }
         !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
-        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../../perfil.php">perfil</a></p>';	
+        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../perfil.php">perfil</a></p>';	
 	
 ?>
          <div class="container p-4">
@@ -101,7 +101,7 @@ enctype="multipart/form-data" text-align="center">
 <?php
 	if(isset($_POST['resultado'])){
 	
-           echo "Has tenido ".$aciertos." aciertos y ".$errores." errores.";
+           echo '<p class="text-center">Has tenido '.$aciertos." aciertos y ".$errores." errores.</p>";
 			
 }
     echo $mensaxe;
