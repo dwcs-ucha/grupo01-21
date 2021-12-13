@@ -56,8 +56,8 @@ else {
         $fecha = date("j/n/Y - g:i a");  //variable que guarda la fecha actual
         $entrada = new Entrada($cod, $ruta, $_POST['titulo'], $autor, $fecha); //creamos objeto de entrada
         $arrayCSV[$i] = $entrada;  //guardamos en el array de entradas en la posición del código
-        DAO::escribirEntradas('../csv/entradas.csv', $arrayCSV); 
-        
+        DAO::escribirEntradas('../csv/entradas.csv', $arrayCSV);
+        Log::logCMS('ha modificado una entrada en el blog');//añadimos al log el movimiento        
     }
     piePagina();
     scriptRuta();

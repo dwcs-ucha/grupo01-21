@@ -7,7 +7,10 @@
 *
 */
 // Se recupera la sesión
- session_start();
+ 
+
+ include("../menu.php");
+ Log::logNuevo('ha cerrado la sesión');
  // Se elimina
  session_unset();
  // Y se redirige de nuevo al index

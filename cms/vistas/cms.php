@@ -90,6 +90,7 @@ else {
         $fichero=null;
         $asunto='Nueva entrada de UchaTech: "' . $_POST['titulo'] . '"';
         Correo::enviarCorreo($destinatarios,$asunto, file_get_contents($ruta), $fichero);
+        Log::logCMS('ha creado una entrada en el blog');//añadimos al log el movimiento
     }
     piePagina();
     scriptRuta();

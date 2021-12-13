@@ -67,7 +67,7 @@ public static function validaLogin($usuario, $contraseña, $arrayCSV) {
              if($arrayCSV[$i-1]->getActivado() == "true") { //Comprobamos que el atributo activado sea igual a true para que solo pueda acceder si ha verificado su cuenta
                 $activado=true;
                 $_SESSION['usuario'] = $arrayCSV[$i-1];
-                Log::log('ha iniciado sesión');
+                Log::logLogin('ha iniciado sesión');
                 include_once('../visitas/registrarVisita.php');//encargado de añadir el seguimiento de ese día
                 header("Location: ../index.php"); //levamos ao usuario á páxina de control de usuarios
              } else $error[]="Debes activar el correo en el link que enviamos a " . $arrayCSV[$i-1]->getEmail();
