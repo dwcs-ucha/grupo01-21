@@ -73,6 +73,7 @@
             enctype="multipart/form-data" text-align="center">
             <fieldset>
                 <?php
+                foreach ($error as $valor) echo '<br/><h4 style="color:red" class="text-center">' . $valor . '</h4>';
                  if(isset($_POST['submit'])){ //ifs para mostrar este mensaje por pantalla cuando se registra correctamente
                       if ($arr['success'] && empty($error)) {
                           ?>
@@ -106,7 +107,6 @@
                 </div>
         </form>
         <?php 
-        foreach ($error as $valor) echo '<p class="text-center">' . $valor . '</p>';
         piePagina(); scriptRuta(); ?>
         <script src="https://www.google.com/recaptcha/api.js"></script>
     </body>
