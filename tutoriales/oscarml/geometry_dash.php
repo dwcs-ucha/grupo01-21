@@ -124,6 +124,7 @@
     <p>
     Cuando recibamos 'win' mostraremos el botón y en la posición (0,0) y creamos un bucle que compruebe todo el rato si tenemos el ratón encima de él y estamos haciendo clic. De ser así enviaremos 'start'. Y por otra parte cuando recibamos 'start', lo ocultamos.
     </p>
+    <a href="./disfraces.zip"><button class="btn btn-primary mx-auto">Descargar disfraces</button></a><br/><br/>
     <iframe src="https://scratch.mit.edu/projects/608429159/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
     </div>
     <br><a href="./formulario.php"><button class="btn btn-primary mx-auto">Ir al examen</button></a>
