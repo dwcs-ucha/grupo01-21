@@ -2,7 +2,7 @@
 /*
 *
 *Clase Usuario
-*@autor: Marcos
+*@autor: Marcos y Óscar (función verificarUsuario)
 *@version: 1.00.00
 *
 */
@@ -51,8 +51,17 @@
             $this->puntuacion = $puntuacion;
         }
 
+        public function puntuacionTotal() {
+            $puntuacionTotal = 0;
+            $puntuacion = $this->getPuntuacion();
+            for ($i=1; $i<=count($puntuacion)-1; $i++) {
+                    $puntuacionTotal+=$puntuacion[$i];
+            }
+            return $puntuacionTotal;
+        }
 
-
+        public function verificarUsuario(){
+            return $this->activado="true"; //Modificamos el atributo activado del objeto a true, debe ser un string porque sino al guardarlo en el archivo CSV el valor booleano true se convierte en un 1
+        }
     }
-
 ?>

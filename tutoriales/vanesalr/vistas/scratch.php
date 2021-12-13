@@ -93,6 +93,8 @@
     </p>
     <iframe src="https://scratch.mit.edu/projects/606508112/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
     <br><a href="./formulario.php"><button class="btn btn-primary mx-auto">Ir al examen</button></a>
+    </div>
+    </div>
     <?php piePagina(); scriptRuta(); ?>
 </body>
 </html>

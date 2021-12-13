@@ -1,5 +1,6 @@
 <?php include("../../menu.php");
     include("../../clases/DAO.class.php");
+    include '../clases/Tutorial.class.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,46 +14,58 @@
 <body>
 <?php
     menuRuta();
+
 	$errores=0;
 	$aciertos=0;
 	if(isset($_POST['resultado'])){
-		if($_POST['primera']=="acierto1"){
+		if(isset($_POST['primera']) && $_POST['primera']=="acierto1"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['segunda']=="acierto2"){
+		if(isset($_POST['segunda']) && $_POST['segunda']=="acierto2"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['tercera']=="acierto3"){
+		if(isset($_POST['tercera']) && $_POST['tercera']=="acierto3"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['cuarta']=="nave"){
+		if(isset($_POST['cuarta']) && $_POST['cuarta']=="nave"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 		
-		if($_POST['quinta']=="acierto5"){
+		if(isset($_POST['quinta']) && $_POST['quinta']=="acierto5"){
 				$aciertos+=1;
 			}else{
 				$errores+=1;
 			}
 			
-			
-	}
+            isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(2,$aciertos) : "";
+    }
+        !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
+        $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../perfil.php">perfil</a></p>';	
+	
 ?>
+         <div class="container p-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="my-4 text-center text-primary">Examen de Space Invaders</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row m-4 border border-primary shadow-lg p-4 bg-light text-center">
+    <div class="col-lg-12">
      <form class="form" id="formulario" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post"
 enctype="multipart/form-data" text-align="center">
         <fieldset>
-            <legend>TEST CONOCIMIENTOS</legend>
             PREGUNTA 1-¿Que es lo primero que deberiamos de hacer para despúes crear el juego?</br>
             <input type="radio" name="primera" value="error"/> Crear objetos nave y marcianos.
             <input type="radio" name="primera" value="acierto1"/> Preparar los fondos para posteriormente usarlos.
@@ -80,15 +93,18 @@ enctype="multipart/form-data" text-align="center">
                 <option value="error6"/>Sumar a y más pixeles</option>
                 <option value="error7"/>Repetir más veces</option>
             </select></br></br>
-                    <input type="submit" name="resultado" value="Obtener aciertos y errores."/>
+                    <input class="btn btn-primary" type="submit" name="resultado" value="Enviar"/>
         </fieldset>
     </form>
+</div>
+</div>
 <?php
 	if(isset($_POST['resultado'])){
 	
-           echo "Has tenido ".$aciertos." aciertos y ".$errores." errores.";
+           echo '<h1 class="text-center">Has tenido '.$aciertos." aciertos y ".$errores." errores.</h1>";
 			
 }
+    echo $mensaxe;
     piePagina(); scriptRuta();
 ?>
 </body>

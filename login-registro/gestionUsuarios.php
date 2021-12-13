@@ -28,6 +28,18 @@
         die("<p>Error - No tiene acceso a esta página.</p>");
     }
     else {
+        $valoresUsuarios = array (
+            'contraseña' => 'Contraseña',
+            'email'=>'Email',
+            'gestionUsuarios' => 'Gestión de usuarios',
+            'tablaUsuarios' => 'Tabla de usuarios',
+            'rol' => 'Rol',
+            'enviar' => 'Enviar',
+            'eliminar' => 'Eliminar',
+            'administrador' => 'Administrador',
+            'usuario' => 'Usuario'
+        );
+        $valoresUsuarios = Idioma::cambiarIdioma($valoresUsuarios);
         ?>
     </head>
     <body class="bg-primary bg-opacity-50">
@@ -35,18 +47,18 @@
         <div class="container p-4">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="my-4 text-center text-white">Ingreso de usuarios</h1>
+                    <h1 class="my-4 text-center text-white"><?php echo $valoresUsuarios['gestionUsuarios'] ?></h1>
                 </div>
             </div>
         </div>
         <form action="./gestionUsuarios.php" method="post">
         <div class="row m-4 border rounded border-primary shadow-lg p-4 bg-light">
         <div class="col-lg-12 text-center">
-            <p>Rol</p>
+            <p><?php echo $valoresUsuarios['rol'] ?></p>
             <select name="rol">
-            <option disabled <?php !isset($_POST['rol']) ? print 'selected="true"' : "";?>>Seleccione rol</option>
-            <option value="administrador">Administrador</option>
-            <option value="usuario">Usuario</option>
+            <option disabled <?php !isset($_POST['rol']) ? print 'selected="true"' : "";?>><?php echo $valoresUsuarios['rol'] ?></option>
+            <option value="administrador"><?php echo $valoresUsuarios['administrador'] ?></option>
+            <option value="usuario"><?php echo $valoresUsuarios['usuario'] ?></option>
             </select>   
             <?php 
                 if (isset($_POST['rol'])) { //No caso de que estea asignado un rol
@@ -54,27 +66,27 @@
                 } else if (!isset($_POST['rol']) && isset($_POST['submit'])) $error[] = "Debes asignarle un rol al usuario."; 
                 //En caso contrario, mandamos un error
             ?>
-            <p>Usuario</p>
+            <p><?php echo $valoresUsuarios['usuario'] ?></p>
             <input type="text" id="usuario" name="usuario" value="<?php isset($_POST['usuario']) ? $usuarioValidado = Validaciones::validaUsuario($_POST['usuario']) : "";?>">
             <?php
                 if(isset($_POST['usuario'])) { //función que compara usuario con array
                     Validaciones::comparaUsuarios($usuarioValidado, $arrayCSV);
                 }
             ?> <br/>
-            <p>Contraseña</p>
+            <p><?php echo $valoresUsuarios['contraseña'] ?></p>
             <input type="password" id="contrasinal" name="contrasinal" value=""> <br/>
             <?php isset($_POST['contrasinal']) ? $contraseña = Validaciones::validaContraseña($_POST['contrasinal']) : ""; ?>
-            <p>Correo electrónico</p>
+            <p>Email</p>
             <input type="email" name="email" value="<?php isset($_POST['email']) ? print $correo=Validaciones::validaEmail($_POST['email']) : ""; ?>"> <br>
         </div>
-            <button class="btn btn-primary m-4 col-lg-1 mx-auto" type="submit" name="submit">Enviar</button>
+            <button class="btn btn-primary m-4 col-lg-1 mx-auto" type="submit" name="submit"><?php echo $valoresUsuarios['enviar'] ?></button>
         </form>
             </div>
             </div>
 
 
         <?php 
-            $puntuacion="0-0-0-0-0-0-0-0-0";
+            $puntuacion="0-0-0-0-0-0-0-0-0-0-0";
             $activado=false;
             foreach ($error as $valor) echo '<p class=error>' . $valor . '</p>';
             if (empty($error) && isset($_POST['submit'])) {
@@ -96,7 +108,7 @@
                 echo ' <div class="container p-4">
                 <div class="row">
                         <div class="col-md-12">
-                            <h1 class="my-4 text-center text-white">Tabla de usuarios</h1>
+                            <h1 class="my-4 text-center text-white">' . $valoresUsuarios['tablaUsuarios'] . '</h1>
                         </div>
                     </div>
                 </div>';

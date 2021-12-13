@@ -51,7 +51,9 @@ $arrayTutoriales = DAO::obtenerTutoriales('./tutoriales/csv/tutoriales.csv');
       ?>
     </div>
   </div>
-<?php piePagina(); scriptRuta(); ?>
+<?php 
+
+piePagina(); scriptRuta(); ?>
 </body>
 
 </html>
