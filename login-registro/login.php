@@ -2,7 +2,7 @@
 /*
 *
 *Login
-*@autor: Marcos
+*@autor: Marcos y Daniel Rivas
 *@version: 1.00.00
 *
 */

@@ -83,13 +83,13 @@ else {
         $arrayCSV[] = $entrada;  //guardamos en el array de entradas
         DAO::escribirEntradas('../csv/entradas.csv', $arrayCSV);  //escribimos de nuevo el archivo
         $arrayUsuarios = DAO::obtenerUsuarios('../../login-registro/csv/usuarios.csv');
-        $destinatarios = array();
-        foreach ($arrayUsuarios as $usuarioDato) {
+        $destinatarios = array(); //creamos un array destinatarios para añadir al mail
+        foreach ($arrayUsuarios as $usuarioDato) { //obtenemos el mail de todos los usuarios
             $destinatarios[] = $usuarioDato->getEmail();
         }
         $fichero=null;
-        $asunto='Nueva entrada de UchaTech: "' . $_POST['titulo'] . '"';
-        Correo::enviarCorreo($destinatarios,$asunto, file_get_contents($ruta), $fichero);
+        $asunto='Nueva entrada de UchaTech: "' . $_POST['titulo'] . '"'; //creamos un asunto 
+        Correo::enviarCorreo($destinatarios,$asunto, file_get_contents($ruta), $fichero); //enviamos el correo
         Log::logCMS('ha creado una entrada en el blog');//añadimos al log el movimiento
     }
     piePagina();

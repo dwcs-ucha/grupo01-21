@@ -2,7 +2,7 @@
 /*
 *
 *Clase Validaciones
-*@autor: Pablo Vázquez Pereiro
+*@autor: Pablo Vázquez Pereiro y Daniel Rivas Arévalo
 *@version: 1.00.00
 *
 */

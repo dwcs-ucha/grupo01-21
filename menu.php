@@ -6,15 +6,26 @@
 *@version: 1.00.00
 *
 */
-/** Función links Ruta **/
+/** Archivo Menú:
+ *  Separa en cuatro funciones aquellos datos que queramos incluir en todas las vistas:
+ *  linksRuta(), menuRuta(), piePagina(), sriptsRuta(). Las rutas son absolutas para HTML a travñes de $nav y PHP a través de $_SERVER['DOCUMENT_ROOT]
+ */
 
-$nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/";
+$nav= "http://" . $_SERVER['SERVER_NAME'] . "/grupo01-21/"; //ruta absoluta HTML
+//cases incluidas en ruta absoluta PHP:
 include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/multiidioma/clases/Idioma.class.php';
 include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/clases/Usuario.class.php';
 include $_SERVER['DOCUMENT_ROOT']. '/grupo01-21/clases/Log.class.php';
-session_start();
-isset($_SESSION['usuario']) ? $usuario=$_SESSION['usuario'] : "" ;
+session_start(); //iniciamos sesión
+isset($_SESSION['usuario']) ? $usuario=$_SESSION['usuario'] : "" ; //guardamos la sesión de usuario en la variable $usuario
 
+/** Función links Ruta:
+* incluido en el <header> de los documentos, alberga toda la información que
+* queremos insertar en nuestras vistas. Aquí añadimos la inclusión de dos clases: Idioma y Usuario,
+*las cuales queremos que se integren en todas las vistas debido al multi-idioma y los roles de
+* usuario respectivamente, además del inicio de sesión (session_start()) y el objeto $usuario que
+* guarda la información del usuario que hizo login ($_SESSION['usuario']). 
+*/
 function linksRuta(){ 
   global $nav;
 ?>
@@ -80,7 +91,9 @@ function linksRuta(){
 <?php
 } //cerramos llave de la función linksRuta()
 
-/** Función menuRuta **/
+/** Función menuRuta
+ * incluido al principio del <body>, incluye el menú de la aplicación, el cual activa ou desactiva
+*  opciones dependiendo del rol del usuario que ingresa en la página e incluye el aviso de cookies. **/
 function menuRuta(){
   global $usuario;
   $valoresMenu = array (
@@ -175,11 +188,13 @@ function menuRuta(){
     </div>
   </nav>
   <?php
-  !isset($_COOKIE['aceptadas']) ? include $_SERVER['DOCUMENT_ROOT'] . "/grupo01-21/avisoCookies.php" : ""; //aviso de cookiess
+  !isset($_COOKIE['aceptadas']) ? include $_SERVER['DOCUMENT_ROOT'] . "/grupo01-21/avisoCookies.php" : ""; //aviso de cookies si estas no están aceptadas
 } //cerramos la función menuRuta()
 
 
-/** Pie de página **/
+/** Pie de página 
+ * incluido al final del <body>, imprime en pantalla el pie de página común a toda las
+*  vistas.**/
 function piePagina(){
   global $nav;
   ?>
@@ -192,7 +207,9 @@ function piePagina(){
   </footer>
 <?php
 } //cerramos función piePagina()
-/** Función scriptRuta **/
+/** Función scriptRuta
+ * incluido, también, al final del <body>, incluye los links de Javascript necesarios para
+*  el correcto funcionamiento de la página. **/
 function scriptRuta(){
   global $nav;
 ?>

@@ -2,7 +2,7 @@
 /*
 *
 *Clase Usuario
-*@autor: Marcos y Óscar (función verificarUsuario)
+*@autor: Marcos, Óscar (función verificarUsuario) y Daniel Rivas
 *@version: 1.00.00
 *
 */

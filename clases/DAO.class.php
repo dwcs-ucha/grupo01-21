@@ -2,7 +2,7 @@
 /*
 *
 *Clase DAO
-*@autor: Jorge Seijoso González
+*@autor: Jorge Seijoso González y Daniel Rivas Arévalo
 *@version: 1.00.00
 *
 */
