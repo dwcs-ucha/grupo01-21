@@ -9,7 +9,6 @@
     include_once("../menu.php"); //Incluímos todo el código necesario
     include_once("../clases/DAO.class.php");
     include_once("../clases/Usuario.class.php");
-    include_once("../clases/Validaciones.class.php");
     $archivo=("./csv/usuarios.csv");
     $arrayUsuarios= DAO::obtenerUsuarios($archivo); //Guardamos en este array todos los usuarios del CSV
 ?>
