@@ -2,8 +2,8 @@
 <?php
     /*
     *
-    *Formulario del tutorial de Scratch: "Falling Balloons"
-    *@autor: Daniel Rivas Arévalo
+    *Formulario del tutorial de Scratch: "Flappy Birds"
+    *@autor: Pablo Vázquez Pereiro
     *@version: 1.00.00
     *
     */
@@ -14,7 +14,7 @@
     $preguntas = DAO::obterPreguntas('.././csv/preguntas.csv');
 ?><html>
 <head>
-    <title>Examen Falling Balloons</title>
+    <title>Examen Flappy Birds</title>
     <?php
     linksRuta(); //añadimos los links de estilo de Bootstrap 
     $error = array();
@@ -76,7 +76,7 @@
                     }
                 }
              
-                isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(1,$puntuacion) : "";
+                isset($_SESSION['usuario']) ? Tutorial::añadirPuntuacion(10,$puntuacion) : "";
         }
         !isset($_SESSION['usuario']) ? $mensaxe = '<p class="text-center">Para guardar tu puntuación puedes <a href="' . $nav . 'login-registro/registro.php">registrarte</a> o <a href="' . $nav . 'login-registro/login.php">acceder</a> si ya tienes cuenta</p>' : 
         $mensaxe = '<p class="text-center">Para acceder a tu registro de puntuaciones dirígete al <a href="../../../perfil.php">perfil</a></p>';
