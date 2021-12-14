@@ -45,7 +45,9 @@
                 Correo::enviarCorreo($_POST['email'], "Verificación de cuenta", $mensaje, null); //Llamamos a la función para enviar un email
                 $_SESSION['nombreUsuario']=$_POST['nombreUsuario']; //Creamos un $_SESSION para que solo se pueda acceder a la página de registrado.php si estás registrado
                 $_SESSION['email']=$_POST['email']; //Guardamos el email en $_SESSION para poder usarlo en registrado.php
-                header("Location: ./registrado.php") ; //Enviamos al usuario a la página registrado.php
+              ?>
+             
+              <?php
             }
             
         }
@@ -70,6 +72,18 @@
           <form class="form" id="formulario" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post"
             enctype="multipart/form-data" text-align="center">
             <fieldset>
+                <?php
+                foreach ($error as $valor) echo '<br/><h4 style="color:red" class="text-center">' . $valor . '</h4>'; //Se muestran los errores por pantalla al principio de la página
+                 if(isset($_POST['submit'])){ //ifs para mostrar este mensaje por pantalla cuando se registra correctamente
+                      if ($arr['success'] && empty($error)) {
+                          ?>
+                          </br>
+                          <h4 style="color:green; text-align: center">Email de verificación enviado a: <?php echo $_POST['email'];?></h4>
+                          <?php
+                      }
+                     
+                 }
+                ?>
             <div class="container p-4">
                     <div class="row">
                         <div class="col-md-12">
@@ -93,7 +107,6 @@
                 </div>
         </form>
         <?php 
-        foreach ($error as $valor) echo '<p class="text-center">' . $valor . '</p>';
         piePagina(); scriptRuta(); ?>
         <script src="https://www.google.com/recaptcha/api.js"></script>
     </body>

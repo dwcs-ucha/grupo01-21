@@ -16,6 +16,7 @@ else if($usuario->getRol()!='administrador') {
 else {
     include '../clases/Entrada.class.php'; //clase Entrada
     include '../../clases/DAO.class.php'; //clase DAO
+    Log::logCMS('ha eliminado una entrada en el blog');//añadimos al log el movimiento
     $arrayCSV = DAO::obterEntradas('../csv/entradas.csv'); //array de entradas
     for ($i=0; $i<=count($arrayCSV); $i++) {
         if ($arrayCSV[$i]->codigo == $_GET['id']) unset($arrayCSV[$i]);

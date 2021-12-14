@@ -88,9 +88,9 @@ else {
             $destinatarios[] = $usuarioDato->getEmail();
         }
         $fichero=null;
-        $asunto='Nueva entrada de UchaTech: "' . $_POST['titulo'] . '"'; //asunto de nueva entrada
-        Correo::enviarCorreo($destinatarios,$asunto, file_get_contents($ruta), $fichero); 
-        //enviamos correo en el caso de haber escrito una nueva entrada en el blog
+        $asunto='Nueva entrada de UchaTech: "' . $_POST['titulo'] . '"'; //creamos un asunto 
+        Correo::enviarCorreo($destinatarios,$asunto, file_get_contents($ruta), $fichero); //enviamos el correo
+        Log::logCMS('ha creado una entrada en el blog');//añadimos al log el movimiento
     }
     piePagina();
     scriptRuta();

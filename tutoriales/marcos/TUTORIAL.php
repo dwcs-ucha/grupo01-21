@@ -113,7 +113,7 @@
             <p class="centrado">Te dejamos aquí un test de conocimientos sobre el juego. Nos ayudaría que lo hicieras. Muchas gracias.</p>
             <form>
                 <center>
-                    <a href="./disfraces.zip" class="enlaceboton"><img src="./ZIP.png" width="50px"/>Descargar disfraces</a><br>
+                    <a href="./disfraces.zip" class="btn btn-primary"><img src="./ZIP.png" width="50px"/>Descargar disfraces</a><br>
                     <a class="btn btn-primary" href="./test.php" class="enlacetest" >HACER TEST</a> 
             </center>
             </form>

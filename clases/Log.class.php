@@ -9,14 +9,32 @@
 
     class Log {
 
-        public static function log($mensaje){
+        public static function logLogin($mensaje){
             
             $usuario = $_SESSION['usuario'];
             $fecha = date("r");
             $ddf = fopen('../log/log.log','a'); 
-            fwrite($ddf,'[' . $fecha . '] ' . $usuario->getNombreUsuario() . ' ' . $mensaje . '\r\n'); 
-            fclose($ddf); 
+            fwrite($ddf,'[' . $fecha . '] ' . $usuario->getNombreUsuario() . ' ' . $mensaje . "\r\n"); 
+            fclose($ddf);
         } 
+
+        public static function logNuevo($mensaje){
+            
+            global $usuario;
+            $fecha = date("r");
+            $ddf = fopen('../log/log.log','a'); 
+            fwrite($ddf,'[' . $fecha . '] ' . $usuario->getNombreUsuario() . ' ' . $mensaje . "\r\n"); 
+            fclose($ddf);
+        }
+
+        public static function logCMS($mensaje){
+            
+            global $usuario;
+            $fecha = date("r");
+            $ddf = fopen('../../log/log.log','a'); 
+            fwrite($ddf,'[' . $fecha . '] ' . $usuario->getNombreUsuario() . ' ' . $mensaje . "\r\n"); 
+            fclose($ddf);
+        }
     }
 
 ?>

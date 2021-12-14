@@ -17,9 +17,18 @@
 <html>
     <head>
         <title>Verificación cuenta</title>
+        <?php linksRuta(); ?>
     </head>
     <body>
-        <?php
+    <?php menuRuta(); ?>
+    <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="my-4 text-center text-primary">Verificación cuenta</h1>
+                        </div>
+                    </div>
+    </div>
+<?php
             if(isset($_GET["usuario"])){ //Se comprueba si se ha pasado algún usuario en la url
                 $usuarioVerificar=$_GET["usuario"]; //De haberla, la guardamos en esta variable
                 $cont=0; //Iniciamos un contador a 0 para el bucle while
@@ -39,6 +48,8 @@
             }
             else
                 echo "<h4 style='color:red; text-align:center'>No hay ningún usuario que verificar.</h4>";
-        ?>
+
+            piePagina(); scriptRuta();
+?>
     </body>
 </html>
