@@ -2,7 +2,7 @@
 /*
 *
 *Registro
-*@autor: Marcos y Óscar (parte verificación correo)
+*@autor: Marcos, Óscar (parte verificación correo) y Daniel Rivas
 *@version: 1.00.00
 *
 */

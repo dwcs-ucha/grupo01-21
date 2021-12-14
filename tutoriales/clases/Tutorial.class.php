@@ -1,4 +1,11 @@
 <?php 
+    /*
+    *
+    *Clase Tutorial
+    *@autor: Daniel Rivas Arévalo
+    *@version: 1.00.00
+    *
+    */
 
 class Tutorial {
     public $cod;
@@ -41,7 +48,7 @@ class Tutorial {
                 $usuarios->setPuntuacion($usuario->getPuntuacionString()); //cambiamos en el array de usuarios
             }
         }
-        DAO::escribirUsuarios($nav . 'login-registro/csv/usuarios.csv', $arrayUsuarios); //y escribimos en el
+        DAO::escribirUsuarios($nav . 'login-registro/csv/usuarios.csv', $arrayUsuarios); //y escribimos en él
     }
 }
 
