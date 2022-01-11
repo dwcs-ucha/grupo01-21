@@ -40,7 +40,7 @@
     <p>
         Iremos explicando cada objeto por separado para ir detallando lo que hace especificamente cada uno. Empezamos por el JUGADOR:
     </p>
-    <img src="./img/jugador.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/jugador.PNG" width="700"><br/><br/>
     <p>
         Creamos un bloque que llamamos gravedad, para simular la gravedad cuando salte el jugador en el juego. Tenemos que crear una variable para saber la velocidad en el eje Y del jugador y le damos el valor de
         la gravedad real, que es el que mejor se ajusta. Indicamos los grados que girará mientras está en el aire e insertamos un if con la condición de que si está tocando el objeto suelo (que veremos más adelante) que apunte
@@ -60,7 +60,7 @@
     <p>
         Vamos ahora con el objeto SUELO:
     </p>
-    <img src="./img/suelo.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/suelo.PNG" width="700"><br/><br/>
     <p>
         Cuando pulsamos la bandera verde ocultamos el objeto, definimos la x a -470 y cambiamos el traje a suelo 1. Creamos un bucle que se repita tantas veces como distintos suelos tenemos, en mi caso 18. Al final de la página
         os dejo un zip para poder descargar todos los distintos disfraces (<em>costumes</em>), jugador, fondo y el resto recursos que podais necesitar. Cuando creamos un clon, lo mostramos, y relizamos un bucle que si stop es igual
@@ -68,34 +68,34 @@
 
         Este es un ejemplo de un disfraz del suelo:
     </p>
-    <img src="./img/disfrazSuelo.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/disfrazSuelo.PNG" width="700"><br/><br/>
     <p>
         En el objeto FONDO tenemos algo similar:
     </p>
-    <img src="./img/fondo.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/fondo.PNG" width="700"><br/><br/>
     <p>
         Cuando iniciamos el programa hacemos que vaya para la última capa, que cree un clon de si mismo y cremos un bucle para que vaya a determinada posición (se han hecho pruebas y estas cantidades son las idóneas, aunque puedes hacer
         pruebas por tu cuenta).<br/><br/>
 
         El objeto OBSTACULOS es una parte importante para saber que parte del mapa es un obstaculo y cual no, pero en verdad no tiene mucha ciencia porque en la parte de código es prácticamente igual a la del objeto SUELO:
     </p>
-    <img src="./img/obstaculos.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/obstaculos.PNG" width="700"><br/><br/>
     <p>
         Solo se diferencia en la parte de los disfraces, os dejo aquí el mismo disfraz que os dejé arriba del suelo solo que está preparado para ser un obstáculo, es decir, solamente tienes que dejar los elementos que quieres que funcionen
         como obstáculos, como por ejemplo los pinchos:
     </p>
-    <img src="./img/disfrazObstaculo.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/disfrazObstaculo.PNG" width="700"><br/><br/>
     <p>
         Fijaos en que borré el suelo, porque no quiero que lo detecte como obstáculo y también los bloques donde se apoya el jugador. Pero se pueden observar unas líneas en el lateral de donde irían los bloques para que si choca el jugador por ese lado
         que vuelva a empezar de nuevo.<br/><br/>
 
         Ahora crearemos unas partículas que se generarán detrás del jugador cuando está tocando el suelo simulando velocidad.
     </p>
-    <img src="./img/disfrazParticulas.png" width="700"><br/><br/>
+    <img src="./img/tutorial/disfrazParticulas.png" width="700"><br/><br/>
     <p>
         Empezaremos creando un disfraz muy simple, un cuadrado del color que quieras. Cabe remarcar que tú puedes hacer la forma que más te guste. 
     </p>
-    <img src="./img/particulasJugador.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/particulasJugador.PNG" width="700"><br/><br/>
     <p>
         En la parte de código creamos un bloque que llamamos setup. Dentro de él decimos que vaya a la posición del jugador, que sería el centro del jugador, por eso luego ponemos dos bloques cambiando la X y la Y para que se posicione en la esquina
         inferior izquierda del jugador.<br/><br/>
@@ -110,11 +110,11 @@
 
         Vamos con el objeto Win, que mostrará un mensaje por pantalla de 'Nivel superado!' cuando lleguemos a la meta:
     </p>
-    <img src="./img/mensajeWin.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/mensajeWin.PNG" width="700"><br/><br/>
     <p>
     Cuando iniciamos el juego lo colocamos en la posición que queremos que se muestre en la pantalla, a todo esto, el disfraz de este objeto es un texto que pone 'Nivel superado!' como el de la foto, aunque lo puedes personalizar como quieras.
     </p>
-    <img src="./img/disfrazWin.png" width="700"><br/><br/>
+    <img src="./img/tutorial/disfrazWin.png" width="700"><br/><br/>
     <p>
         También le indicamos que se coloque en la primera capa para asegurarnos de que se vea siempre y creamos un bucle para que compruebe todo el rato si la posición X del jugador es menor a -7500. Ojo aquí, este valor es único y personal, ya que dependerá de la longitud de tu nivel.<br/><br/>
 
@@ -124,7 +124,7 @@
 
         Vamos con el último objeto que nos queda que es un botón que nos saldrá por pantalla cuando lleguemos al final del nivel y el cual podemos pulsar para volver a jugar. El disfraz, al igual que el resto de imágenes, os lo dejo en un link al final de la página.
     </p>
-    <img src="./img/restart.PNG" width="700"><br/><br/>
+    <img src="./img/tutorial/restart.PNG" width="700"><br/><br/>
     <p>
     Cuando recibamos 'win' mostraremos el botón y en la posición (0,0) y creamos un bucle que compruebe todo el rato si tenemos el ratón encima de él y estamos haciendo clic. De ser así enviaremos 'start'. Y por otra parte cuando recibamos 'start', lo ocultamos.
     </p>

@@ -1,0 +1,43 @@
+.marco{
+  padding: 10px;
+  background-color: blueviolet;
+}
+
+#div1 {
+    float: left;
+    text-align: center;
+    width: 70px;
+    height: 55px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  #div2 {
+    float: left;
+    text-align: center;
+    width: 120px;
+    height: 55px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  .fondo {
+    background-position: center;
+    background-image: url("../img/examen/codigo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 400px;
+  }
+  
+  #posicion {
+    text-align: left;
+    position: absolute;
+    left: 679px;
+    top: 1495px;
+    height:20px;
+    width: 150px;
+    padding: 9px 10px 50px 10px;
+    border: 1px solid black;
+  }

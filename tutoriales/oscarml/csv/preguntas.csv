@@ -1,5 +1,7 @@
 1,¿Cuantos disfraces tenemos que crear para el suelo?,Tantos como partes distintas del nivel queramos hacer,simple
 2,Los disfraces de los obstáculos son exactamente iguales a los del suelo.,Falso,simple
 3,Para saber que hemos llegado a la meta hacemos un 'broadcast win' desde el objeto:,win,simple
-4,"En el objeto de las partículas de jugador cuando definimos el bloque setup, en el if en la condición ponemos un OR porque:",Ninguna es correcta,simple
-5,¿Cuales son las variables que hemos creado nosotros?,jugadorX-stop,multiple
+4,"En el objeto de las partículas de jugador cuando definimos el bloque setup, en el if en la condición ponemos un or porque:",Ninguna es correcta,simple
+5,¿Qué parte de código corresponde al objeto PARTICULAS que usaremos para simular roce con entre el suelo y el jugador? Haz clic sobre la que creas (Sólo hay una respuesta correcta),particulas,simple
+6,¿Cuáles son las variables que hemos creado nosotros?,jugadorX-stop,multiple
+7,Arrastra y coloca el bloque correcto en el hueco indicado.,gravedad,simple
