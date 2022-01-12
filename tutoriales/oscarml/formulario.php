@@ -187,7 +187,7 @@
             <label><input type="checkbox" name="variables[]" value="indicador">&nbsp; y</label><br/>
         <p><?php echo $preguntas[6]->cod;?>. <?php echo $preguntas[6]->enunciado;?></p>
         <div class="fondo">
-            <span id="posicion" ondrop="dropRespuesta(event)" ondragover="allowDrop(event)"></span>
+            <br/><br/><br/><br/><br/><br/><br/><span style="" id="posicion" ondrop="dropRespuesta(event)" ondragover="allowDrop(event)"></span>
         </div>
         <div style="display: flex; justify-content:center;">
             <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">

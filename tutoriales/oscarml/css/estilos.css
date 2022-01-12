@@ -33,11 +33,9 @@
   
   #posicion {
     text-align: left;
-    position: absolute;
-    left: 680px;
-    top: 1496px;
-    height:20px;
-    width: 150px;
-    padding: 9px 10px 50px 10px;
+    position:absolute;
+    top:69.7%;
+    left:31.9%;
+    padding: 50px 200px;
     border: 0px solid black;
   }
