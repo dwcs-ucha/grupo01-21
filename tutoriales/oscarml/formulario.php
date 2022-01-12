@@ -34,37 +34,31 @@
         }
 
         function allowDrop(ev) {
-        ev.preventDefault();
+            ev.preventDefault();
         }
 
         var respuesta=null; //Variable para controlar si hay una imagen en la casilla de respuesta y así no permitir poner más
 
         function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
+            ev.dataTransfer.setData("text", ev.target.id);
         }
 
         function drop(ev) { //Función para los rectángulos que tienen los bloques con las opciones de respuesta
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        if(data==respuesta){ //Comprobamos si el id de la imagen que acabamos de dropear es igual al de la respuesta para así resetear la variable respuesta y que se pueda colocar un nuevo bloque en ella
-            respuesta=null;
-        }
-        ev.target.appendChild(document.getElementById(data)); //Colocamos el bloque en el rectángulo
-        document.getElementById("resultados").innerHTML="data -> " + data;
-        document.getElementById("resultados").innerHTML+="<br/>respuesta -> " + respuesta;
-        document.getElementById("resultados").innerHTML+="<br/>cont -> " + cont;
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            if(data==respuesta){ //Comprobamos si el id de la imagen que acabamos de dropear es igual al de la respuesta para así resetear la variable respuesta y que se pueda colocar un nuevo bloque en ella
+                respuesta=null;
+            }
+            ev.target.appendChild(document.getElementById(data)); //Colocamos el bloque en el rectángulo
         }
 
         function dropRespuesta(ev) { //Función para el div invisible que hay encima del bloque negro '???' en la imagen
             ev.preventDefault();
             var data = ev.dataTransfer.getData("text");
-        if(respuesta==null){ //Comprobamos si el bloque está vacío
-            respuesta=data; //De ser así, igualamos la variable respuesta al nombre del bloque introducido
-            ev.target.appendChild(document.getElementById(data)); //Y lo colocamos en el div invisible
-            document.getElementById("resultados").innerHTML="dataRespuesta -> " + data;
-            document.getElementById("resultados").innerHTML+="<br/>respuesta -> " + respuesta;
-            document.getElementById("resultados").innerHTML+="<br/>cont -> " + cont;
-        }
+            if(respuesta==null){ //Comprobamos si el bloque está vacío
+                respuesta=data; //De ser así, igualamos la variable respuesta al nombre del bloque introducido
+                ev.target.appendChild(document.getElementById(data)); //Y lo colocamos en el div invisible
+            }
         }
 
         function enviar(){ //Función a la que se llama cuando pulsamos el botón de enviar el formulario
